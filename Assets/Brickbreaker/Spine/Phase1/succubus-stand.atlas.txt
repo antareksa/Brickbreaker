@@ -1,0 +1,120 @@
+succubus-stand.png
+size:3208,2057
+filter:Linear,Linear
+Back Hair
+bounds:2,524,885,1531
+Back Skirt
+bounds:889,924,930,497
+Blush
+bounds:3027,985,266,134
+rotate:90
+Corset
+bounds:862,60,453,416
+Face
+bounds:2404,373,351,398
+offsets:0,0,351,408
+Left Arm
+bounds:2757,375,279,396
+Left Bang
+bounds:1607,2,125,328
+rotate:90
+Left Boob
+bounds:2404,77,335,294
+offsets:0,0,338,294
+Left Eye Close
+bounds:3134,685,115,72
+rotate:90
+Left Eye Open
+bounds:3134,572,111,72
+rotate:90
+Left Eyebrow
+bounds:2404,780,56,20
+rotate:90
+Left Head Wing
+bounds:2166,46,228,242
+Left Middle
+bounds:389,17,76,198
+rotate:90
+Left Pinky
+bounds:3035,201,118,100
+Left Point
+bounds:3143,1606,63,202
+Left Side Hair
+bounds:2282,306,120,530
+Left Thigh
+bounds:889,478,444,776
+rotate:90
+Left Thumb
+bounds:1821,1386,35,114
+rotate:90
+Left Upper Arm
+bounds:3038,554,94,246
+offsets:17,0,111,246
+Left Wing
+bounds:1821,838,546,613
+rotate:90
+Left ring
+bounds:3038,387,129,165
+Middle Bang
+bounds:1937,9,118,212
+rotate:90
+Mouth
+bounds:3035,104,109,95
+Neck And Torso
+bounds:2436,773,589,611
+Nose
+bounds:2540,2,50,73
+Right Bang
+bounds:3027,802,141,181
+Right Boob
+bounds:2741,37,334,292
+rotate:90
+Right Eye Close
+bounds:2396,9,142,66
+Right Eye Open
+bounds:1667,854,142,68
+Right Eyebrow
+bounds:3006,1520,68,19
+rotate:90
+Right Hand
+bounds:1317,78,288,398
+Right Head Wing
+bounds:3027,1253,335,179
+rotate:90
+Right Middle
+bounds:3075,1594,66,214
+Right Pinky
+bounds:2,2,91,174
+rotate:90
+Right Point
+bounds:589,26,67,185
+rotate:90
+Right Ring
+bounds:178,12,81,209
+rotate:90
+Right Side Hair
+bounds:2130,1386,202,874
+rotate:90
+Right Thigh
+bounds:2,95,427,858
+rotate:90
+Right Thumb
+bounds:1607,367,57,109
+Right Upper Arm
+bounds:1607,129,159,557
+offsets:0,16,159,573
+rotate:90
+Right Wing
+bounds:1667,290,546,613
+rotate:90
+Skirt
+bounds:2130,1590,943,465
+angry_mouth
+bounds:3038,303,123,82
+closed_mouth
+bounds:3163,1183,68,28
+rotate:90
+new hand
+bounds:3075,1810,111,245
+tail
+bounds:889,1423,1239,632

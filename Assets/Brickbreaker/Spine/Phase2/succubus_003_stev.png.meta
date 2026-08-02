@@ -1,0 +1,1300 @@
+fileFormatVersion: 2
+guid: 8219c3d4f523eaa4ca3f49668fc4e2b6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5815984415625571209
+    second: succubus_003_stev_0
+  - first:
+      213: 4551102017108015048
+    second: succubus_003_stev_1
+  - first:
+      213: 3411466875846825841
+    second: succubus_003_stev_2
+  - first:
+      213: 1804826387000400356
+    second: succubus_003_stev_3
+  - first:
+      213: -4016345152403524493
+    second: succubus_003_stev_4
+  - first:
+      213: 536196011790384987
+    second: succubus_003_stev_5
+  - first:
+      213: 6493649736235049152
+    second: succubus_003_stev_6
+  - first:
+      213: 7455901347976277686
+    second: succubus_003_stev_7
+  - first:
+      213: -8916260493610524938
+    second: succubus_003_stev_8
+  - first:
+      213: 775017383322784669
+    second: succubus_003_stev_9
+  - first:
+      213: 6879406747797132742
+    second: succubus_003_stev_10
+  - first:
+      213: -2503872794743718603
+    second: succubus_003_stev_11
+  - first:
+      213: -7483594013965222948
+    second: succubus_003_stev_12
+  - first:
+      213: -2714877961431777775
+    second: succubus_003_stev_13
+  - first:
+      213: -3084047945746476321
+    second: succubus_003_stev_14
+  - first:
+      213: 3439031845324953778
+    second: succubus_003_stev_15
+  - first:
+      213: 6071735363600786489
+    second: succubus_003_stev_16
+  - first:
+      213: 1558064405924098963
+    second: succubus_003_stev_17
+  - first:
+      213: 8073910352415734434
+    second: succubus_003_stev_18
+  - first:
+      213: -3516310838960946961
+    second: succubus_003_stev_19
+  - first:
+      213: 391872149981652764
+    second: succubus_003_stev_20
+  - first:
+      213: -1896595849768510259
+    second: succubus_003_stev_21
+  - first:
+      213: 7508887662374059591
+    second: succubus_003_stev_22
+  - first:
+      213: 8725523545964265086
+    second: succubus_003_stev_23
+  - first:
+      213: -4682501823973334634
+    second: succubus_003_stev_24
+  - first:
+      213: 6265039879946827768
+    second: succubus_003_stev_25
+  - first:
+      213: 4343470016395492318
+    second: succubus_003_stev_26
+  - first:
+      213: 481856835626346835
+    second: succubus_003_stev_27
+  - first:
+      213: -7967416437029037019
+    second: succubus_003_stev_28
+  - first:
+      213: -6168312646594275469
+    second: succubus_003_stev_29
+  - first:
+      213: 3785569432378632758
+    second: succubus_003_stev_30
+  - first:
+      213: -6323977548777152173
+    second: succubus_003_stev_31
+  - first:
+      213: 3422522031152454633
+    second: succubus_003_stev_32
+  - first:
+      213: -6375223674774011532
+    second: succubus_003_stev_33
+  - first:
+      213: -3774335768887664352
+    second: succubus_003_stev_34
+  - first:
+      213: 3986677803233325398
+    second: succubus_003_stev_35
+  - first:
+      213: 501769420154548315
+    second: succubus_003_stev_36
+  - first:
+      213: 5139738309768644531
+    second: succubus_003_stev_37
+  - first:
+      213: -6990989577139302424
+    second: succubus_003_stev_38
+  - first:
+      213: -8144569127767125382
+    second: succubus_003_stev_39
+  - first:
+      213: -1197883735560332587
+    second: succubus_003_stev_40
+  - first:
+      213: -4390172529553025651
+    second: succubus_003_stev_41
+  - first:
+      213: 6808962729642770385
+    second: succubus_003_stev_42
+  - first:
+      213: 3011800459359835196
+    second: succubus_003_stev_43
+  - first:
+      213: 3106883442432545065
+    second: succubus_003_stev_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: succubus_003_stev_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1493
+        width: 685
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98be198f20786b050800000000000000
+      internalID: 5815984415625571209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_1
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 1502
+        width: 757
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7794afb23c82f30800000000000000
+      internalID: 4551102017108015048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_2
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1612
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1779cd18c07f75f20800000000000000
+      internalID: 3411466875846825841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_3
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 1497
+        width: 601
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e9196e59080c0910800000000000000
+      internalID: 1804826387000400356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 860
+        width: 443
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37430a70d531348c0800000000000000
+      internalID: -4016345152403524493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_5
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1052
+        width: 469
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f3fbc8e63f07700800000000000000
+      internalID: 536196011790384987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_6
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 1090
+        width: 796
+        height: 407
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c06910c7041e1a50800000000000000
+      internalID: 6493649736235049152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_7
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 716
+        width: 730
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be6b7ed5cea87760800000000000000
+      internalID: 7455901347976277686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 563
+        width: 530
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fede794254134480800000000000000
+      internalID: -8916260493610524938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_9
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 646
+        width: 481
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9315b3343a61ca00800000000000000
+      internalID: 775017383322784669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_10
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 396
+        width: 288
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c59fdb0dff887f50800000000000000
+      internalID: 6879406747797132742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_11
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 508
+        width: 834
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d398295f4704dd0800000000000000
+      internalID: -2503872794743718603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 358
+        width: 537
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdbfc52e4eee42890800000000000000
+      internalID: -7483594013965222948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_13
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 396
+        width: 287
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e725cc0e0d25ad0800000000000000
+      internalID: -2714877961431777775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_14
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 201
+        width: 521
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2128bbbb24335d0800000000000000
+      internalID: -3084047945746476321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_15
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 232
+        width: 405
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b899d71e35e9bf20800000000000000
+      internalID: 3439031845324953778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_16
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 281
+        width: 363
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9342a9dc423234450800000000000000
+      internalID: 6071735363600786489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_17
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 360
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393394c725b5f9510800000000000000
+      internalID: 1558064405924098963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 152
+        width: 283
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aab61820ba4c0070800000000000000
+      internalID: 8073910352415734434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_19
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 194
+        width: 347
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe080e31ced833fc0800000000000000
+      internalID: -3516310838960946961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_20
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 81
+        width: 142
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c176609e4a5307500800000000000000
+      internalID: 391872149981652764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_21
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 81
+        width: 347
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc511c8f10fda5e0800000000000000
+      internalID: -1896595849768510259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_22
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 84
+        width: 213
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e7e1e8b8de43860800000000000000
+      internalID: 7508887662374059591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_23
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 86
+        width: 221
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7eb18c6f69471970800000000000000
+      internalID: 8725523545964265086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_24
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 89
+        width: 174
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69163f96669640fb0800000000000000
+      internalID: -4682501823973334634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_25
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 91
+        width: 167
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7f2e3c394e1f650800000000000000
+      internalID: 6265039879946827768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_26
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 124
+        width: 248
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb30db97fa174c30800000000000000
+      internalID: 4343470016395492318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_27
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 47
+        width: 123
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3592a103d36efa600800000000000000
+      internalID: 481856835626346835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_28
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 48
+        width: 169
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52c9645b6fc0e6190800000000000000
+      internalID: -7967416437029037019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_29
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 81
+        width: 200
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377d23c3450c56aa0800000000000000
+      internalID: -6168312646594275469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_30
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 1
+        width: 142
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a6189875b098430800000000000000
+      internalID: 3785569432378632758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_31
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 1
+        width: 225
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351a79ddce7bc38a0800000000000000
+      internalID: -6323977548777152173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_32
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 1
+        width: 142
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eb5ace67ad3f7f20800000000000000
+      internalID: 3422522031152454633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_33
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 83
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4714f6d58d7a687a0800000000000000
+      internalID: -6375223674774011532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_34
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 1
+        width: 138
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02166609d9dde9bc0800000000000000
+      internalID: -3774335768887664352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_35
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 1
+        width: 96
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65138a7f656835730800000000000000
+      internalID: 3986677803233325398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_36
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1
+        width: 71
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50377f01a4a6f600800000000000000
+      internalID: 501769420154548315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_37
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1
+        width: 773
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b70a30e2c4045740800000000000000
+      internalID: 5139738309768644531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_38
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 5
+        width: 108
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef472af4040bfe90800000000000000
+      internalID: -6990989577139302424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_39
+      rect:
+        serializedVersion: 2
+        x: 2033
+        y: 52
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72d3d2b78da8fe80800000000000000
+      internalID: -8144569127767125382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_40
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 31
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da55b3d613406fe0800000000000000
+      internalID: -1197883735560332587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_41
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1
+        width: 70
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8550513859f213c0800000000000000
+      internalID: -4390172529553025651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_42
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df3b35f68b4e7e50800000000000000
+      internalID: 6808962729642770385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_43
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1
+        width: 141
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3450828f801cc920800000000000000
+      internalID: 3011800459359835196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus_003_stev_44
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 66
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9211cb8a70edd1b20800000000000000
+      internalID: 3106883442432545065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      succubus_003_stev_0: 5815984415625571209
+      succubus_003_stev_1: 4551102017108015048
+      succubus_003_stev_10: 6879406747797132742
+      succubus_003_stev_11: -2503872794743718603
+      succubus_003_stev_12: -7483594013965222948
+      succubus_003_stev_13: -2714877961431777775
+      succubus_003_stev_14: -3084047945746476321
+      succubus_003_stev_15: 3439031845324953778
+      succubus_003_stev_16: 6071735363600786489
+      succubus_003_stev_17: 1558064405924098963
+      succubus_003_stev_18: 8073910352415734434
+      succubus_003_stev_19: -3516310838960946961
+      succubus_003_stev_2: 3411466875846825841
+      succubus_003_stev_20: 391872149981652764
+      succubus_003_stev_21: -1896595849768510259
+      succubus_003_stev_22: 7508887662374059591
+      succubus_003_stev_23: 8725523545964265086
+      succubus_003_stev_24: -4682501823973334634
+      succubus_003_stev_25: 6265039879946827768
+      succubus_003_stev_26: 4343470016395492318
+      succubus_003_stev_27: 481856835626346835
+      succubus_003_stev_28: -7967416437029037019
+      succubus_003_stev_29: -6168312646594275469
+      succubus_003_stev_3: 1804826387000400356
+      succubus_003_stev_30: 3785569432378632758
+      succubus_003_stev_31: -6323977548777152173
+      succubus_003_stev_32: 3422522031152454633
+      succubus_003_stev_33: -6375223674774011532
+      succubus_003_stev_34: -3774335768887664352
+      succubus_003_stev_35: 3986677803233325398
+      succubus_003_stev_36: 501769420154548315
+      succubus_003_stev_37: 5139738309768644531
+      succubus_003_stev_38: -6990989577139302424
+      succubus_003_stev_39: -8144569127767125382
+      succubus_003_stev_4: -4016345152403524493
+      succubus_003_stev_40: -1197883735560332587
+      succubus_003_stev_41: -4390172529553025651
+      succubus_003_stev_42: 6808962729642770385
+      succubus_003_stev_43: 3011800459359835196
+      succubus_003_stev_44: 3106883442432545065
+      succubus_003_stev_5: 536196011790384987
+      succubus_003_stev_6: 6493649736235049152
+      succubus_003_stev_7: 7455901347976277686
+      succubus_003_stev_8: -8916260493610524938
+      succubus_003_stev_9: 775017383322784669
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &736061159909984341
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 549192722630988825, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 549192722630988825, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 549192722630988825, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038365094066889817, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_Name
+      value: ColumnBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: BallIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 60469c0194c9de94faf9a35f0eff76f6, type: 3}
+    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: BallName
+      value: Column Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1038365094066889817, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8736867957522772775}
+  m_SourcePrefab: {fileID: 100100000, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+--- !u!1 &314689249756589068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1038365094066889817, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+  m_PrefabInstance: {fileID: 736061159909984341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8736867957522772775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314689249756589068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9a0f5e9e90c3944a8ab7feeede208e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDamage: 1
+  spreadChance: 0.5
+  HitVfx: {fileID: 1278867674329268113, guid: af95f96b4f377404f9ce4b86a5293d60, type: 3}
+  ColumnVfx: {fileID: 4676103951213152022, guid: 194f4750b2dec9b46842ecb16ffd14f8, type: 3}

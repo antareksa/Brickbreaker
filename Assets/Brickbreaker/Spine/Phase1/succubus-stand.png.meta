@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: 1d2c6c797d3900d4baf5c256355336e4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8046463460611729744
+    second: succubus-stand_0
+  - first:
+      213: -463723973733520180
+    second: succubus-stand_1
+  - first:
+      213: 8628933817787541016
+    second: succubus-stand_2
+  - first:
+      213: -3821358435842073472
+    second: succubus-stand_3
+  - first:
+      213: 2525053766458887213
+    second: succubus-stand_4
+  - first:
+      213: -7819586323388441445
+    second: succubus-stand_5
+  - first:
+      213: -6399658136963298675
+    second: succubus-stand_6
+  - first:
+      213: -6154107199560022434
+    second: succubus-stand_7
+  - first:
+      213: -6404452247219353952
+    second: succubus-stand_8
+  - first:
+      213: 3248861987526860695
+    second: succubus-stand_9
+  - first:
+      213: -5936778397247641548
+    second: succubus-stand_10
+  - first:
+      213: -7440493669783992338
+    second: succubus-stand_11
+  - first:
+      213: -784740937841099357
+    second: succubus-stand_12
+  - first:
+      213: -6800128095183407973
+    second: succubus-stand_13
+  - first:
+      213: -3001358771382910713
+    second: succubus-stand_14
+  - first:
+      213: 9006045102741786055
+    second: succubus-stand_15
+  - first:
+      213: -432072254837714013
+    second: succubus-stand_16
+  - first:
+      213: -7255034027815898172
+    second: succubus-stand_17
+  - first:
+      213: 7447812750506113965
+    second: succubus-stand_18
+  - first:
+      213: -8609268642886563659
+    second: succubus-stand_19
+  - first:
+      213: 2973141474727682163
+    second: succubus-stand_20
+  - first:
+      213: -5660047340766987085
+    second: succubus-stand_21
+  - first:
+      213: 5458405817792035778
+    second: succubus-stand_22
+  - first:
+      213: 742018956704198829
+    second: succubus-stand_23
+  - first:
+      213: 2217549125854765326
+    second: succubus-stand_24
+  - first:
+      213: -1865762886925844380
+    second: succubus-stand_25
+  - first:
+      213: -995995903242127703
+    second: succubus-stand_26
+  - first:
+      213: -1485453426708264986
+    second: succubus-stand_27
+  - first:
+      213: -6903590570986210196
+    second: succubus-stand_28
+  - first:
+      213: -7460802795518828423
+    second: succubus-stand_29
+  - first:
+      213: 2012532994470646787
+    second: succubus-stand_30
+  - first:
+      213: 545359404066646297
+    second: succubus-stand_31
+  - first:
+      213: -1632420892378336702
+    second: succubus-stand_32
+  - first:
+      213: 866475975242084628
+    second: succubus-stand_33
+  - first:
+      213: 6437647078110949458
+    second: succubus-stand_34
+  - first:
+      213: 7809036399519600166
+    second: succubus-stand_35
+  - first:
+      213: -3724797858955837720
+    second: succubus-stand_36
+  - first:
+      213: -3813154225430084680
+    second: succubus-stand_37
+  - first:
+      213: 6304596394366146116
+    second: succubus-stand_38
+  - first:
+      213: -3523614990914503772
+    second: succubus-stand_39
+  - first:
+      213: 7494092404117525074
+    second: succubus-stand_40
+  - first:
+      213: -5972228421207974055
+    second: succubus-stand_41
+  - first:
+      213: 2377436083849808107
+    second: succubus-stand_42
+  - first:
+      213: 2524486313517023097
+    second: succubus-stand_43
+  - first:
+      213: -4890064804593839794
+    second: succubus-stand_44
+  - first:
+      213: -4235355417804909243
+    second: succubus-stand_45
+  - first:
+      213: 4059878597924021311
+    second: succubus-stand_46
+  - first:
+      213: 3083807369708195653
+    second: succubus-stand_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: succubus-stand_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1963
+        width: 176
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6d3145d18355090800000000000000
+      internalID: -8046463460611729744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1963
+        width: 211
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccce7c7b0858099f0800000000000000
+      internalID: -463723973733520180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_2
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1963
+        width: 200
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816e497d69120c770800000000000000
+      internalID: 8628933817787541016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_3
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1963
+        width: 187
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08cd030cfbec7fac0800000000000000
+      internalID: -3821358435842073472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_4
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 1580
+        width: 455
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2c4b84b50bca0320800000000000000
+      internalID: 2525053766458887213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_5
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1929
+        width: 330
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9cdde73baf3b7390800000000000000
+      internalID: -7819586323388441445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_6
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 1929
+        width: 214
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8a4d5ec4d8df27a0800000000000000
+      internalID: -6399658136963298675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_7
+      rect:
+        serializedVersion: 2
+        x: 2165
+        y: 1768
+        width: 230
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e560d8c9b18389aa0800000000000000
+      internalID: -6154107199560022434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_8
+      rect:
+        serializedVersion: 2
+        x: 2395
+        y: 1981
+        width: 137
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6c9870d90de17a0800000000000000
+      internalID: -6404452247219353952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_9
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 1685
+        width: 329
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79fdec2b3c6461d20800000000000000
+      internalID: 3248861987526860695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_10
+      rect:
+        serializedVersion: 2
+        x: 2534
+        y: 1981
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43867d980835c9da0800000000000000
+      internalID: -5936778397247641548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_11
+      rect:
+        serializedVersion: 2
+        x: 2740
+        y: 1685
+        width: 294
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee78bf2cd6e0eb890800000000000000
+      internalID: -7440493669783992338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1534
+        width: 860
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad3647564a0c15f0800000000000000
+      internalID: -784740937841099357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_13
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 1580
+        width: 290
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94707ba68711a1a0800000000000000
+      internalID: -6800128095183407973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_14
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1768
+        width: 550
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701083c69180956d0800000000000000
+      internalID: -3001358771382910713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_15
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 1857
+        width: 111
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd021c0e46ebfc70800000000000000
+      internalID: 9006045102741786055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_16
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 1755
+        width: 120
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3981dc298f00af0800000000000000
+      internalID: -432072254837714013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_17
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1580
+        width: 59
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c379a29df0f05b90800000000000000
+      internalID: -7255034027815898172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_18
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1220
+        width: 615
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dabba838c32fb5760800000000000000
+      internalID: 7447812750506113965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_19
+      rect:
+        serializedVersion: 2
+        x: 2281
+        y: 1220
+        width: 122
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b846dc78cbb58880800000000000000
+      internalID: -8609268642886563659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_20
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 1285
+        width: 353
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370ef1c3b68b24920800000000000000
+      internalID: 2973141474727682163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_21
+      rect:
+        serializedVersion: 2
+        x: 2756
+        y: 1285
+        width: 281
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc70b98ee87371b0800000000000000
+      internalID: -5660047340766987085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_22
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 1676
+        width: 108
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb7b61eb2720cb40800000000000000
+      internalID: 5458405817792035778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_23
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 887
+        height: 1533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0b5fa4f4e2c4a00800000000000000
+      internalID: 742018956704198829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_24
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1146
+        width: 778
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e012d8e4e2156ce10800000000000000
+      internalID: 2217549125854765326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_25
+      rect:
+        serializedVersion: 2
+        x: 3037
+        y: 1504
+        width: 131
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4608da12a8a7b16e0800000000000000
+      internalID: -1865762886925844380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_26
+      rect:
+        serializedVersion: 2
+        x: 3044
+        y: 1256
+        width: 89
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a63285c0038d22f0800000000000000
+      internalID: -995995903242127703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_27
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 1373
+        width: 74
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7caaa8afb926be0800000000000000
+      internalID: -1485453426708264986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_28
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 1256
+        width: 74
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c71a5d3f48130a0800000000000000
+      internalID: -6903590570986210196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_29
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 672
+        width: 615
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970ebd1f267e57890800000000000000
+      internalID: -7460802795518828423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_30
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 1220
+        width: 22
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3041d2a7814fdeb10800000000000000
+      internalID: 2012532994470646787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_31
+      rect:
+        serializedVersion: 2
+        x: 2435
+        y: 672
+        width: 591
+        height: 613
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 919af421d71819700800000000000000
+      internalID: 545359404066646297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_32
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 1073
+        width: 143
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242fcd9e8d97859e0800000000000000
+      internalID: -1632420892378336702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_33
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 635
+        width: 932
+        height: 502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411f6b60f47560c00800000000000000
+      internalID: 866475975242084628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_34
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1127
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2507220d8ed175950800000000000000
+      internalID: 6437647078110949458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_35
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 1134
+        width: 152
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e06773b354f5c60800000000000000
+      internalID: 7809036399519600166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_36
+      rect:
+        serializedVersion: 2
+        x: 3058
+        y: 956
+        width: 104
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ee3dc4051cde4cc0800000000000000
+      internalID: -3724797858955837720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_37
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 805
+        width: 85
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b3c5775f64f41bc0800000000000000
+      internalID: -3813154225430084680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_38
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 468
+        width: 181
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446176a740d6e7750800000000000000
+      internalID: 6304596394366146116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_39
+      rect:
+        serializedVersion: 2
+        x: 3162
+        y: 805
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4abbc4da5da991fc0800000000000000
+      internalID: -3523614990914503772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_40
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1
+        width: 1241
+        height: 634
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252d06d065d500860800000000000000
+      internalID: 7494092404117525074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_41
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 635
+        width: 116
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f1864a4e16e1da0800000000000000
+      internalID: -5972228421207974055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_42
+      rect:
+        serializedVersion: 2
+        x: 2129
+        y: 468
+        width: 876
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be84016a5895ef020800000000000000
+      internalID: 2377436083849808107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_43
+      rect:
+        serializedVersion: 2
+        x: 2129
+        y: 1
+        width: 948
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f74854de6c80320800000000000000
+      internalID: 2524486313517023097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_44
+      rect:
+        serializedVersion: 2
+        x: 3005
+        y: 468
+        width: 21
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e415b8908fff22cb0800000000000000
+      internalID: -4890064804593839794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_45
+      rect:
+        serializedVersion: 2
+        x: 3076
+        y: 1
+        width: 111
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5455638ffaef835c0800000000000000
+      internalID: -4235355417804909243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_46
+      rect:
+        serializedVersion: 2
+        x: 3077
+        y: 248
+        width: 65
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34e87c1316975830800000000000000
+      internalID: 4059878597924021311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-stand_47
+      rect:
+        serializedVersion: 2
+        x: 3142
+        y: 248
+        width: 65
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f403bc672ebca20800000000000000
+      internalID: 3083807369708195653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      succubus-stand_0: -8046463460611729744
+      succubus-stand_1: -463723973733520180
+      succubus-stand_10: -5936778397247641548
+      succubus-stand_11: -7440493669783992338
+      succubus-stand_12: -784740937841099357
+      succubus-stand_13: -6800128095183407973
+      succubus-stand_14: -3001358771382910713
+      succubus-stand_15: 9006045102741786055
+      succubus-stand_16: -432072254837714013
+      succubus-stand_17: -7255034027815898172
+      succubus-stand_18: 7447812750506113965
+      succubus-stand_19: -8609268642886563659
+      succubus-stand_2: 8628933817787541016
+      succubus-stand_20: 2973141474727682163
+      succubus-stand_21: -5660047340766987085
+      succubus-stand_22: 5458405817792035778
+      succubus-stand_23: 742018956704198829
+      succubus-stand_24: 2217549125854765326
+      succubus-stand_25: -1865762886925844380
+      succubus-stand_26: -995995903242127703
+      succubus-stand_27: -1485453426708264986
+      succubus-stand_28: -6903590570986210196
+      succubus-stand_29: -7460802795518828423
+      succubus-stand_3: -3821358435842073472
+      succubus-stand_30: 2012532994470646787
+      succubus-stand_31: 545359404066646297
+      succubus-stand_32: -1632420892378336702
+      succubus-stand_33: 866475975242084628
+      succubus-stand_34: 6437647078110949458
+      succubus-stand_35: 7809036399519600166
+      succubus-stand_36: -3724797858955837720
+      succubus-stand_37: -3813154225430084680
+      succubus-stand_38: 6304596394366146116
+      succubus-stand_39: -3523614990914503772
+      succubus-stand_4: 2525053766458887213
+      succubus-stand_40: 7494092404117525074
+      succubus-stand_41: -5972228421207974055
+      succubus-stand_42: 2377436083849808107
+      succubus-stand_43: 2524486313517023097
+      succubus-stand_44: -4890064804593839794
+      succubus-stand_45: -4235355417804909243
+      succubus-stand_46: 4059878597924021311
+      succubus-stand_47: 3083807369708195653
+      succubus-stand_5: -7819586323388441445
+      succubus-stand_6: -6399658136963298675
+      succubus-stand_7: -6154107199560022434
+      succubus-stand_8: -6404452247219353952
+      succubus-stand_9: 3248861987526860695
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

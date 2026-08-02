@@ -1,0 +1,111 @@
+0.png
+size:2048,2048
+filter:Linear,Linear
+Back Hair
+bounds:2,970,607,1051
+offsets:0,0,608,1051
+Back Skirt
+bounds:1255,1525,672,329
+Butt
+bounds:577,508,524,386
+Corset
+bounds:1263,687,299,271
+offsets:0,6,299,277
+Face
+bounds:1263,444,241,287
+offsets:2,4,243,291
+rotate:90
+Left Bang
+bounds:1564,735,97,223
+offsets:0,1,97,224
+Left Boob
+bounds:1677,1327,243,196
+offsets:3,0,246,197
+Left Close Eye
+bounds:1636,989,77,50
+offsets:2,2,80,56
+Left Eyebrow
+bounds:916,158,45,34
+offsets:2,1,49,36
+Left Head Wing
+bounds:990,282,224,100
+rotate:90
+Left Lower Arm
+bounds:2,2,204,129
+offsets:0,1,204,130
+Left Open Eye
+bounds:1856,1247,78,52
+offsets:1,0,79,56
+rotate:90
+Left Side Hair
+bounds:294,127,167,384
+offsets:0,14,167,398
+rotate:90
+Left Thigh
+bounds:611,1146,622,339
+offsets:2,0,624,340
+Left Upper Arm
+bounds:577,301,205,411
+offsets:1,15,206,426
+rotate:90
+Left Wing
+bounds:611,896,627,248
+Middle Bang
+bounds:1955,1877,89,144
+offsets:1,0,91,145
+Mouth
+bounds:208,43,88,84
+offsets:1,1,89,86
+rotate:90
+Nose
+bounds:990,232,28,48
+offsets:1,2,29,51
+Pussy
+bounds:1092,285,101,150
+offsets:4,1,108,155
+Right Bang
+bounds:1195,307,113,128
+Right Boob
+bounds:680,103,234,196
+offsets:0,0,234,201
+Right Close Eye
+bounds:1564,696,88,37
+offsets:2,2,91,40
+Right Eyebrow
+bounds:577,900,68,12
+offsets:3,1,72,14
+rotate:90
+Right Head Wing
+bounds:1636,1041,209,119
+offsets:1,0,210,119
+Right Lower Arm
+bounds:1636,1162,218,163
+Right Open Eye
+bounds:1955,1827,91,48
+offsets:0,0,91,49
+Right Side Hair
+bounds:1103,437,158,457
+offsets:10,0,168,457
+Right Thigh
+bounds:611,1487,642,367
+offsets:0,0,654,367
+Right Upper Arm
+bounds:1255,1339,184,420
+offsets:0,1,186,421
+rotate:90
+Right Wing
+bounds:2,133,835,290
+rotate:90
+Skirt
+bounds:294,296,672,281
+rotate:90
+Tail2
+bounds:611,1856,165,1342
+rotate:90
+Torso
+bounds:1240,960,394,377
+offsets:0,1,395,378
+angry_mouth
+bounds:916,194,105,72
+offsets:11,6,123,82
+rotate:90
