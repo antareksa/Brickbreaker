@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public CoinManager CoinManager;
     public SoundManager SoundManager;
     public BossManager BossManager;
+    public ConsumableManager ConsumableManager;
 
     // Where spawned coins animate to before their value gets added.
     public Transform CollectPoint;
@@ -31,6 +32,10 @@ public class GameManager : MonoBehaviour
     private int _wave;
     private int _score;
     private int _playerChanceCount;
+
+    // Reset to 0 whenever TakePlayerHit is actually called (not when a PowerUp blocks the hit
+    // entirely) -- lets a PowerUp award bonus HP for stringing together HP-loss-free waves.
+    private int _wavesSinceLastHpLoss;
 
     private void Awake()
     {
@@ -101,6 +106,16 @@ public class GameManager : MonoBehaviour
     {
         _wave++;
         OnWaveChanged?.Invoke(_wave);
+
+        _wavesSinceLastHpLoss++;
+        if (PowerUpManager.Instance != null)
+        {
+            int bonusHp = PowerUpManager.Instance.GetTotalBonusHpForWavesSurvived(_wavesSinceLastHpLoss);
+            if (bonusHp > 0)
+            {
+                SetPlayerChanceCount(_playerChanceCount + bonusHp);
+            }
+        }
     }
 
     public void ResetWave()
@@ -144,7 +159,13 @@ public class GameManager : MonoBehaviour
     // that only fails next time.
     public bool TakePlayerHit()
     {
+        _wavesSinceLastHpLoss = 0;
         SetPlayerChanceCount(_playerChanceCount - 1);
         return _playerChanceCount > 0;
+    }
+
+    public void ResetWavesSinceLastHpLoss()
+    {
+        _wavesSinceLastHpLoss = 0;
     }
 }

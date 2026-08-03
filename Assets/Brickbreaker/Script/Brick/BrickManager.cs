@@ -60,6 +60,15 @@ public class BrickManager : MonoBehaviour
 
     public int GetBrickCount() => _bricks.Count;
 
+    // Snapshot copy -- callers (Consumable effects hitting "every brick") destroy bricks while
+    // iterating, which would break iterating the live dictionary's values directly.
+    public List<BrickController> GetAllBricks() => new List<BrickController>(_bricks.Values);
+
+    // One-shot flag consumed by the very next DescendBricks call -- set by the "bricks don't
+    // descend this wave" Consumable effect.
+    private bool _skipNextDescend;
+    public void SkipNextDescend() => _skipNextDescend = true;
+
     private void Start()
     {
         Launcher.OnShotFinished.AddListener(HandleShotFinished);
@@ -163,15 +172,18 @@ public class BrickManager : MonoBehaviour
         GameManager.Instance.ResetScore();
         GameManager.Instance.CoinManager.ResetCoins();
         GameManager.Instance.SetPlayerChanceCount(StartingPlayerChanceCount);
+        GameManager.Instance.ResetWavesSinceLastHpLoss();
         GameManager.Instance.SkillManager.ResetSkillPoint();
         GameManager.Instance.BossManager.ResetBoss();
         PowerUpManager.Instance.ResetPowerUps();
+        ConsumableManager.Instance.ResetConsumables();
         _isGameOver = false;
         _isBossEndingPhase = false;
         _pendingBossHits = 0;
         _finalPhaseBrickDestroyed = false;
         _finalPhaseBrickBossManager = null;
         _isFinalPhaseBrickActive = false;
+        _skipNextDescend = false;
 
         Launcher.ResetLauncher();
         GameManager.Instance.LaunchManager.ResetRoster();
@@ -321,20 +333,52 @@ public class BrickManager : MonoBehaviour
     // (grid positions) are changing -- iterating and mutating the same dictionary isn't safe.
     private void DescendBricks()
     {
+        // Skips the reach-bottom check too, not just the shift loop below -- with nothing moving
+        // down, nothing can newly reach the bottom threshold this wave either, so this only ever
+        // makes the wave safer, never different in a way that needs its own HP-loss handling.
+        if (_skipNextDescend)
+        {
+            _skipNextDescend = false;
+            return;
+        }
+
         if (WouldAnyBrickReachBottom())
         {
             // Thematically the boss's own attack landing -- fires regardless of whether the
             // player actually has a chance left to survive it.
             GameManager.Instance.BossManager.AttackPlayer();
 
-            if (GameManager.Instance.TakePlayerHit())
+            float blockChance = PowerUpManager.Instance != null ? PowerUpManager.Instance.GetTotalBlockHpLossChance() : 0f;
+            bool blocked = blockChance > 0f && Random.value < blockChance;
+
+            if (blocked)
             {
                 ClearBottomRows(3);
             }
             else
             {
-                GameOver();
-                return;
+                bool survived = GameManager.Instance.TakePlayerHit();
+
+                // Only on an actual loss -- a blocked hit above never reaches this, so it never
+                // grants this bonus either.
+                if (PowerUpManager.Instance != null)
+                {
+                    float bonusCharge = PowerUpManager.Instance.GetTotalBonusSkillChargeOnHpLoss();
+                    if (bonusCharge > 0f)
+                    {
+                        GameManager.Instance.SkillManager.AddSkillPoint(bonusCharge);
+                    }
+                }
+
+                if (survived)
+                {
+                    ClearBottomRows(3);
+                }
+                else
+                {
+                    GameOver();
+                    return;
+                }
             }
         }
 
@@ -405,12 +449,18 @@ public class BrickManager : MonoBehaviour
             brick.Spawn(hp, gridPosition);
             brick.OnDestroyed.AddListener(HandleBrickDestroyed);
 
-            // Just one gold brick per gold wave -- the first one spawned. No reward/visual
-            // behavior wired up yet, just the marker on BrickController for now.
-            if (isGoldWave && i == 0)
+            // Just one gold brick per gold wave -- the first one spawned. A PowerUp can also grant
+            // a flat extra chance for any OTHER brick to independently roll Gold too.
+            bool isGold = isGoldWave && i == 0;
+            if (!isGold && PowerUpManager.Instance != null)
             {
-                brick.SetGold(true);
+                float bonusGoldChance = PowerUpManager.Instance.GetTotalBonusGoldChance();
+                if (bonusGoldChance > 0f && Random.value < bonusGoldChance)
+                {
+                    isGold = true;
+                }
             }
+            brick.SetGold(isGold);
 
             _bricks[gridPosition] = brick;
         }

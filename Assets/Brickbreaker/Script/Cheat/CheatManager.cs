@@ -41,4 +41,19 @@ public class CheatManager : MonoBehaviour
         if (powerUp == null) return;
         PowerUpManager.Instance.TryEquip(powerUp);
     }
+
+    // Adds directly, bypassing the Shop -- fails silently (no-op) if slots are already full.
+    public void AddConsumable(BaseConsumable consumable)
+    {
+        if (consumable == null) return;
+        ConsumableManager.Instance.TryAdd(consumable);
+    }
+
+    // Routed through the normal Aiming-only gate -- fails silently (no-op) if not currently
+    // Aiming or the consumable isn't actually held.
+    public void UseConsumable(BaseConsumable consumable)
+    {
+        if (consumable == null) return;
+        ConsumableManager.Instance.TryUse(consumable);
+    }
 }

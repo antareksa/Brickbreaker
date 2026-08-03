@@ -11,10 +11,15 @@ public class ShopHUD : BaseHUD
 {
     public GameObject PopupRoot;
 
-    [Header("Card Offer (PowerUp picks)")]
+    [Header("Card Offer (PowerUp + Consumable picks)")]
     public CardOfferPanel CardOfferPanelPrefab;
     public Transform CardOfferContainer;
     public int CardOfferCount = 2;
+
+    // Odds each offer slot rolls a PowerUp vs a Consumable -- weight ratio between the two pools
+    // isn't formally decided per the design doc, so this is a tunable default rather than derived
+    // from roster size.
+    [Range(0f, 1f)] public float PowerUpOfferChance = 0.6f;
 
     [Header("Pack Offer (Ball Enhance -- not implemented yet)")]
     public GameObject PackOfferSection;
@@ -72,9 +77,11 @@ public class ShopHUD : BaseHUD
         GenerateCardOffers();
     }
 
-    // Picks CardOfferCount unique random entries from the roster (excluding whatever's already
-    // equipped, so a reroll can't offer a duplicate of something the player owns) and shows them
-    // as selectable panels. Rebuilt from scratch on open and on every reroll.
+    // Picks CardOfferCount entries from a combined PowerUp + Consumable pool and shows them as
+    // selectable panels. PowerUp side excludes whatever's already equipped (so a reroll can't
+    // offer a duplicate of something the player owns) -- Consumable side has no such exclusion,
+    // since holding/buying duplicates of the same Consumable is fine. Rebuilt from scratch on
+    // open and on every reroll.
     private void GenerateCardOffers()
     {
         foreach (CardOfferPanel panel in _cardOfferPanels)
@@ -84,7 +91,7 @@ public class ShopHUD : BaseHUD
         _cardOfferPanels.Clear();
 
         IReadOnlyList<BasePowerUp> equipped = PowerUpManager.Instance.GetEquipped();
-        List<BasePowerUp> pool = new List<BasePowerUp>();
+        List<BasePowerUp> powerUpPool = new List<BasePowerUp>();
         foreach (BasePowerUp powerUp in PowerUpManager.Instance.Roster)
         {
             bool isEquipped = false;
@@ -99,20 +106,42 @@ public class ShopHUD : BaseHUD
 
             if (!isEquipped)
             {
-                pool.Add(powerUp);
+                powerUpPool.Add(powerUp);
             }
         }
 
+        List<BaseConsumable> consumablePool = new List<BaseConsumable>(ConsumableManager.Instance.Roster);
+
         int coinShop = GameManager.Instance.GetCoinShop();
 
-        for (int i = 0; i < CardOfferCount && pool.Count > 0; i++)
+        for (int i = 0; i < CardOfferCount; i++)
         {
-            int index = Random.Range(0, pool.Count);
-            BasePowerUp powerUp = pool[index];
-            pool.RemoveAt(index);
+            if (powerUpPool.Count == 0 && consumablePool.Count == 0) break;
+
+            // Coin-flip between the two pools, falling back to whichever still has entries left
+            // this visit if the other's empty or already exhausted.
+            bool offerPowerUp;
+            if (powerUpPool.Count == 0) offerPowerUp = false;
+            else if (consumablePool.Count == 0) offerPowerUp = true;
+            else offerPowerUp = Random.value < PowerUpOfferChance;
 
             CardOfferPanel panel = Instantiate(CardOfferPanelPrefab, CardOfferContainer);
-            panel.SetInfo(powerUp);
+
+            if (offerPowerUp)
+            {
+                int index = Random.Range(0, powerUpPool.Count);
+                BasePowerUp powerUp = powerUpPool[index];
+                powerUpPool.RemoveAt(index);
+                panel.SetInfo(powerUp);
+            }
+            else
+            {
+                int index = Random.Range(0, consumablePool.Count);
+                BaseConsumable consumable = consumablePool[index];
+                consumablePool.RemoveAt(index);
+                panel.SetInfo(consumable);
+            }
+
             panel.RefreshAffordability(coinShop);
             panel.SelectButton.onClick.AddListener(() => HandleCardSelected(panel));
             _cardOfferPanels.Add(panel);
@@ -125,14 +154,28 @@ public class ShopHUD : BaseHUD
     // as Balatro leaving the rest of the shop as-is after one purchase.
     private void HandleCardSelected(CardOfferPanel panel)
     {
-        BasePowerUp powerUp = panel.PowerUp;
+        if (panel.PowerUp != null)
+        {
+            BasePowerUp powerUp = panel.PowerUp;
 
-        if (GameManager.Instance.GetCoinShop() < powerUp.BuyCost) return;
-        if (PowerUpManager.Instance.IsFull) return;
-        if (!PowerUpManager.Instance.TryEquip(powerUp)) return;
+            if (GameManager.Instance.GetCoinShop() < powerUp.BuyCost) return;
+            if (PowerUpManager.Instance.IsFull) return;
+            if (!PowerUpManager.Instance.TryEquip(powerUp)) return;
 
-        GameManager.Instance.TrySpendCoinShop(powerUp.BuyCost);
-        panel.MarkSelected();
+            GameManager.Instance.TrySpendCoinShop(powerUp.BuyCost);
+            panel.MarkSelected();
+        }
+        else if (panel.Consumable != null)
+        {
+            BaseConsumable consumable = panel.Consumable;
+
+            if (GameManager.Instance.GetCoinShop() < consumable.BuyCost) return;
+            if (ConsumableManager.Instance.IsFull) return;
+            if (!ConsumableManager.Instance.TryAdd(consumable)) return;
+
+            GameManager.Instance.TrySpendCoinShop(consumable.BuyCost);
+            panel.MarkSelected();
+        }
     }
 
     // Fires on every Coin Shop change (reward, reroll spend, purchase spend) -- keeps the label

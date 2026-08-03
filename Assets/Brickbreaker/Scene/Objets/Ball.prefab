@@ -190,7 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fdf95a81dcfaa4188235f35398d6c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BallName: 
+  BallName:
+  Rarity: 0
   BallIcon: {fileID: 0}
   BallIconRenderer: {fileID: 1984635644611712093}
   Speed: 10

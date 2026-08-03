@@ -18,7 +18,7 @@ public class RandomColumnsSkillEffect : BaseSkillEffect
 
             foreach (BrickController brick in bricks)
             {
-                brick.DamageBrick(CurrentDamage);
+                DealDamageToBrick(brick);
             }
         }
     }

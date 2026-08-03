@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e4a6d1b4e06054b8ba2a00995f67b9, type: 3}
+  m_Name: BonusSkillChargeOnHpLossPowerUp
+  m_EditorClassIdentifier:
+  PowerUpImage: {fileID: 0}
+  PowerUpName: Bonus Skill Charge On HP Loss
+  Description: Losing HP grants bonus charge to the Skill bar
+  Effect: {fileID: 11400000, guid: 2d4d1b3ce62546f998ad132b47e8f8fe, type: 2}

@@ -15,10 +15,20 @@ public class CoinManager : MonoBehaviour
 
     private readonly List<CoinPickup> _activeCoins = new List<CoinPickup>();
 
+    // One-shot flag consumed by the very next CollectAllCoins call -- set by the "double coin
+    // earned this wave" Consumable effect.
+    private bool _doubleNextCollection;
+    public void DoubleNextCollection() => _doubleNextCollection = true;
+
     public void SpawnCoin(Vector3 position, bool isGold)
     {
         CoinPickup prefab = isGold ? GoldCoinPrefab : SilverCoinPrefab;
         int value = isGold ? GoldCoinValue : SilverCoinValue;
+
+        if (PowerUpManager.Instance != null)
+        {
+            value += PowerUpManager.Instance.GetTotalBonusCoinPerBrick();
+        }
 
         CoinPickup coin = Instantiate(prefab, position, Quaternion.identity);
         coin.Initialize(value);
@@ -65,6 +75,23 @@ public class CoinManager : MonoBehaviour
             yield return null;
         }
 
+        if (PowerUpManager.Instance != null)
+        {
+            totalValue = Mathf.RoundToInt(totalValue * PowerUpManager.Instance.GetTotalCoinValueMultiplier());
+
+            float doubleChance = PowerUpManager.Instance.GetTotalDoubleCoinChance();
+            if (doubleChance > 0f && Random.value < doubleChance)
+            {
+                totalValue *= 2;
+            }
+        }
+
+        if (_doubleNextCollection)
+        {
+            totalValue *= 2;
+            _doubleNextCollection = false;
+        }
+
         GameManager.Instance.AddCoin(totalValue);
     }
 
@@ -78,5 +105,6 @@ public class CoinManager : MonoBehaviour
             if (coin != null) Destroy(coin.gameObject);
         }
         _activeCoins.Clear();
+        _doubleNextCollection = false;
     }
 }

@@ -49,13 +49,28 @@ public class SkillManager : MonoBehaviour
     {
         if (!IsSkillPoint()) return;
 
-        _skillPoint = 0;
+        // Normally resets to 0, but a PowerUp can bank a flat leftover instead (defaults to 0,
+        // so behavior is unchanged with nothing equipped).
+        _skillPoint = PowerUpManager.Instance != null ? PowerUpManager.Instance.GetTotalSkillChargeLeftover() : 0f;
         OnSkillPointChanged?.Invoke(_skillPoint);
         OnActivatedSkill?.Invoke();
 
+        if (PowerUpManager.Instance != null)
+        {
+            int bonusHp = PowerUpManager.Instance.GetTotalBonusHpOnSkillTrigger();
+            if (bonusHp > 0)
+            {
+                GameManager.Instance.SetPlayerChanceCount(GameManager.Instance.GetPlayerChanceCount() + bonusHp);
+            }
+        }
+
         // Skill activation no longer touches the boss -- boss damage now comes purely from
         // brick destruction (BrickManager.AttackPowerToBoss), so this just runs the skill's own
-        // brick-clearing effect.
-        ActiveSkill?.Activate();
+        // brick-clearing effect. Extra triggers from PowerUps just replay Activate() more times.
+        int extraTriggers = PowerUpManager.Instance != null ? PowerUpManager.Instance.GetTotalBonusSkillTriggers() : 0;
+        for (int i = 0; i < 1 + extraTriggers; i++)
+        {
+            ActiveSkill?.Activate();
+        }
     }
 }

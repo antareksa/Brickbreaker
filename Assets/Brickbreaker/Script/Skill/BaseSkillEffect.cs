@@ -39,7 +39,15 @@ public abstract class BaseSkillEffect : MonoBehaviour
                 : 0f;
             float bonusDamageFromTrait = BaseDamage * (traitPercent / 100f);
 
-            return Mathf.RoundToInt((BaseDamage + bonusDamageFromTrait) * CurrentLevel);
+            float damage = (BaseDamage + bonusDamageFromTrait) * CurrentLevel;
+
+            if (PowerUpManager.Instance != null)
+            {
+                damage += PowerUpManager.Instance.GetTotalBonusSkillDamage();
+                damage *= PowerUpManager.Instance.GetTotalSkillDamageMultiplier();
+            }
+
+            return Mathf.RoundToInt(damage);
         }
     }
 
@@ -49,5 +57,21 @@ public abstract class BaseSkillEffect : MonoBehaviour
     {
         if (vfx == null) return;
         VFXManager.Instance.PlayVFX(vfx, position);
+    }
+
+    // Subclasses should call this instead of brick.DamageBrick(CurrentDamage) directly -- it
+    // folds in per-brick PowerUp bonuses (e.g. extra damage to bottom-row bricks) that CurrentDamage
+    // itself can't apply since it doesn't know which brick is being hit.
+    protected void DealDamageToBrick(BrickController brick)
+    {
+        if (brick == null) return;
+
+        int damage = CurrentDamage;
+        if (PowerUpManager.Instance != null)
+        {
+            damage += PowerUpManager.Instance.GetTotalBonusSkillDamageForBrick(brick);
+        }
+
+        brick.DamageBrick(damage);
     }
 }

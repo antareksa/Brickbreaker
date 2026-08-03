@@ -12,10 +12,11 @@ public class CheatGUI : MonoBehaviour
     // brick destruction would.
     public int BossAttackHitCount = 10;
     public BasePowerUp TestPowerUp;
+    public BaseConsumable TestConsumable;
 
     private void OnGUI()
     {
-        GUILayout.BeginArea(new Rect(10, 10, 160, 190));
+        GUILayout.BeginArea(new Rect(10, 10, 160, 260));
 
         if (GUILayout.Button($"Add Gold {GoldAmount}"))
         {
@@ -45,6 +46,16 @@ public class CheatGUI : MonoBehaviour
         if (GUILayout.Button($"Add PowerUp: {(TestPowerUp != null ? TestPowerUp.PowerUpName : "none set")}"))
         {
             CheatManager.AddPowerUp(TestPowerUp);
+        }
+
+        if (GUILayout.Button($"Add Consumable: {(TestConsumable != null ? TestConsumable.ConsumableName : "none set")}"))
+        {
+            CheatManager.AddConsumable(TestConsumable);
+        }
+
+        if (GUILayout.Button($"Use Consumable: {(TestConsumable != null ? TestConsumable.ConsumableName : "none set")}"))
+        {
+            CheatManager.UseConsumable(TestConsumable);
         }
 
         GUILayout.EndArea();

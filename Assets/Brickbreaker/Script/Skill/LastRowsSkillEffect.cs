@@ -19,7 +19,7 @@ public class LastRowsSkillEffect : BaseSkillEffect
             List<BrickController> bricks = brickManager.GetBricksInRow(row);
             foreach (BrickController brick in bricks)
             {
-                brick.DamageBrick(CurrentDamage);
+                DealDamageToBrick(brick);
             }
         }
     }

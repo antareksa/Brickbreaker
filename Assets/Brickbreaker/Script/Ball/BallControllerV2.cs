@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class BallControllerV2 : MonoBehaviour
 {
     public string BallName;
+    public Rarity Rarity;
     public Sprite BallIcon;
     public SpriteRenderer BallIconRenderer;
     public float Speed = 5f;

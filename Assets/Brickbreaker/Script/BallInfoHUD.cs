@@ -25,7 +25,7 @@ public class BallInfoHUD : BaseHUD
     // whichever types the player currently happens to own.
     private void RefreshPanels()
     {
-        List<BallGachaEntry> gachaEntries = GameManager.Instance.LaunchManager.GachaEntries;
+        List<BallControllerV2> gachaEntries = GameManager.Instance.LaunchManager.GachaEntries;
 
         Dictionary<string, int> countByName = new Dictionary<string, int>();
         foreach (BallControllerV2 ball in GameManager.Instance.LaunchManager.Balls)
@@ -36,13 +36,13 @@ public class BallInfoHUD : BaseHUD
 
         for (int i = 0; i < Panels.Count; i++)
         {
-            if (i >= gachaEntries.Count || gachaEntries[i].Prefab == null)
+            if (i >= gachaEntries.Count || gachaEntries[i] == null)
             {
                 Panels[i].gameObject.SetActive(false);
                 continue;
             }
 
-            BallControllerV2 prefab = gachaEntries[i].Prefab;
+            BallControllerV2 prefab = gachaEntries[i];
             countByName.TryGetValue(prefab.BallName, out int count);
 
             Panels[i].gameObject.SetActive(true);
