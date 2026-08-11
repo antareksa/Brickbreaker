@@ -13,4 +13,13 @@ public class BaseConsumable : ScriptableObject
 
     // Flat base cost -- no edition/rarity modifier, same as BasePowerUp.
     public int BuyCost = 3;
+
+    // Prefers the effect's generated text (which carries its real numbers) over the hand-typed
+    // Description, so retuning a value in the Inspector updates every place this is shown.
+    // Description is the fallback for effects that have no numbers worth generating.
+    public string GetDescription()
+    {
+        string generated = Effect != null ? Effect.GetDescription() : string.Empty;
+        return string.IsNullOrEmpty(generated) ? Description : generated;
+    }
 }

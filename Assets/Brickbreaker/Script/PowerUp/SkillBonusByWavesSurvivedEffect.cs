@@ -11,4 +11,6 @@ public class SkillBonusByWavesSurvivedEffect : BasePowerUpEffect
         int wave = GameManager.Instance.GetWave();
         return Mathf.FloorToInt(DamagePerWave * wave);
     }
+
+    public override string GetDescription() => $"Skill deals +{DamagePerWave} damage per wave survived";
 }

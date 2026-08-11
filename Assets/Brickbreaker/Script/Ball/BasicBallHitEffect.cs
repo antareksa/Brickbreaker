@@ -1,6 +1,8 @@
 public class BasicBallHitEffect : BaseBallHitEffect
 {
-    public override void OnHitBrick(BrickController brickController)
+    protected override BallEnhanceType EnhanceType => BallEnhanceType.Basic;
+
+    protected override void ResolveHit(BrickController brickController)
     {
         DealDamage(brickController);
     }

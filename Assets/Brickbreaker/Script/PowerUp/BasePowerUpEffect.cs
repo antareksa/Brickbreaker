@@ -6,6 +6,11 @@ using UnityEngine;
 // equipped PowerUps -- it never contains effect-specific logic itself.
 public abstract class BasePowerUpEffect : ScriptableObject
 {
+    // Shop/HUD text built from this effect's own tuned values, so the numbers shown can never
+    // drift from the numbers actually in play. Empty means "no generated text" -- BasePowerUp
+    // then falls back to its hand-typed Description.
+    public virtual string GetDescription() => string.Empty;
+
     public virtual int GetBonusBallDamage() => 0;
 
     // Additive bonus based on this specific hit's context (bounces this shot, fire order,

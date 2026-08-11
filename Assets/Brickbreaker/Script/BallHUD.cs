@@ -31,9 +31,22 @@ public class BallHUD : BaseHUD
     private void HandleCoinChanged(int coin)
     {
         CoinCountText.text = coin.ToString();
+        RefreshButtons();
+    }
 
-        AddOneBallButton.interactable = GameManager.Instance.LaunchManager.IsCanBuyBall(1);
-        AddSixBallButton.interactable = GameManager.Instance.LaunchManager.IsCanBuyBall(6);
+    // Balls can only be bought while Aiming -- mid-shot (or Shop, boss-attack playback, etc.)
+    // isn't a valid time to add a new ball to the roster.
+    protected override void OnEnterState(GameState state)
+    {
+        RefreshButtons();
+    }
+
+    private void RefreshButtons()
+    {
+        bool isAiming = GameManager.Instance.StateMachine.CurrentState == GameState.Aiming;
+
+        AddOneBallButton.interactable = isAiming && GameManager.Instance.LaunchManager.IsCanBuyBall(1);
+        AddSixBallButton.interactable = isAiming && GameManager.Instance.LaunchManager.IsCanBuyBall(6);
     }
 
     private void OnBuyBall(int totalBall)

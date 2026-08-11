@@ -6,4 +6,9 @@ using UnityEngine;
 public abstract class BaseConsumableEffect : ScriptableObject
 {
     public abstract void Use();
+
+    // Shop/HUD text built from this effect's own tuned values, so the numbers shown can never
+    // drift from the numbers actually in play. Empty means "no generated text" -- BaseConsumable
+    // then falls back to its hand-typed Description.
+    public virtual string GetDescription() => string.Empty;
 }

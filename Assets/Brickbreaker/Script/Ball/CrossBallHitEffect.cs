@@ -9,11 +9,14 @@ public class CrossBallHitEffect : BaseBallHitEffect
     public GameObject RowVfx;
     public GameObject ColumnVfx;
 
-    public override void OnHitBrick(BrickController brickController)
+    protected override BallEnhanceType EnhanceType => BallEnhanceType.Cross;
+
+    protected override void ResolveHit(BrickController brickController)
     {
         DealDamage(brickController);
 
-        if (Random.value < spreadChance)
+        float chance = GetEnhancedChance(spreadChance);
+        if (Random.value < chance)
         {
             PlayVfx(HitVfx, brickController.transform.position);
 
@@ -28,14 +31,14 @@ public class CrossBallHitEffect : BaseBallHitEffect
             foreach (BrickController brick in rowBricks)
             {
                 if (brick == brickController) continue;
-                DealDamage(brick);
+                DealSpreadDamage(brick);
             }
 
             List<BrickController> columnBricks = brickManager.GetBricksInColumn(column);
             foreach (BrickController brick in columnBricks)
             {
                 if (brick == brickController) continue;
-                DealDamage(brick);
+                DealSpreadDamage(brick);
             }
         }
     }

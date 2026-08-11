@@ -13,4 +13,6 @@ public class SkillBonusBottomRowEffect : BasePowerUpEffect
         int bottomRow = GameManager.Instance.BrickManager.BottomRow;
         return brick.GridPosition.y == bottomRow ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"Skill deals +{BonusDamage} damage to bricks on the bottom row";
 }

@@ -8,4 +8,6 @@ public class SkipDescendConsumableEffect : BaseConsumableEffect
     {
         GameManager.Instance.BrickManager.SkipNextDescend();
     }
+
+    public override string GetDescription() => "Bricks do not descend this wave";
 }

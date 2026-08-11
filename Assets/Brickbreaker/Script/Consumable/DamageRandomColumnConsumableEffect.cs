@@ -26,4 +26,6 @@ public class DamageRandomColumnConsumableEffect : BaseConsumableEffect
             brick.DamageBrick(Damage);
         }
     }
+
+    public override string GetDescription() => $"Deal {Damage} damage to every brick in a random column";
 }

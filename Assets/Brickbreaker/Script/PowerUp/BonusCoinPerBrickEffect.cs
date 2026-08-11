@@ -7,4 +7,6 @@ public class BonusCoinPerBrickEffect : BasePowerUpEffect
     public int BonusCoin = 1;
 
     public override int GetBonusCoinPerBrick() => BonusCoin;
+
+    public override string GetDescription() => $"+{BonusCoin} Coin per brick destroyed";
 }

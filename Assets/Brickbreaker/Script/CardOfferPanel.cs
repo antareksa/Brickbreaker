@@ -10,6 +10,11 @@ public class CardOfferPanel : MonoBehaviour
 {
     public Image PowerUpIcon;
     public TMP_Text PowerUpNameText;
+
+    // Which of the two competing card types this slot rolled -- the panel looks identical
+    // otherwise, so without this the player can't tell a passive PowerUp from a one-use Consumable.
+    public TMP_Text TypeText;
+
     public TMP_Text DescriptionText;
     public TMP_Text CostText;
     public Button SelectButton;
@@ -30,11 +35,12 @@ public class CardOfferPanel : MonoBehaviour
 
         PowerUpIcon.sprite = powerUp.PowerUpImage;
         PowerUpNameText.text = powerUp.PowerUpName;
-        DescriptionText.text = powerUp.Description;
+        DescriptionText.text = powerUp.GetDescription();
+        if (TypeText != null) TypeText.text = "PowerUp";
         if (CostText != null) CostText.text = _cost.ToString();
 
         SelectButton.interactable = true;
-        if (SelectButtonText != null) SelectButtonText.text = "Select";
+        if (SelectButtonText != null) SelectButtonText.text = _cost.ToString();
     }
 
     public void SetInfo(BaseConsumable consumable)
@@ -46,18 +52,21 @@ public class CardOfferPanel : MonoBehaviour
 
         PowerUpIcon.sprite = consumable.ConsumableImage;
         PowerUpNameText.text = consumable.ConsumableName;
-        DescriptionText.text = consumable.Description;
+        DescriptionText.text = consumable.GetDescription();
+        if (TypeText != null) TypeText.text = "Consumable";
         if (CostText != null) CostText.text = _cost.ToString();
 
         SelectButton.interactable = true;
-        if (SelectButtonText != null) SelectButtonText.text = "Select";
+        if (SelectButtonText != null) SelectButtonText.text = _cost.ToString();
     }
 
+    // "Purchased" rather than "Equipped" -- the same panel is used for Consumables, which go to
+    // the held inventory rather than an equip slot.
     public void MarkSelected()
     {
         IsSold = true;
         SelectButton.interactable = false;
-        if (SelectButtonText != null) SelectButtonText.text = "Equipped";
+        if (SelectButtonText != null) SelectButtonText.text = "Purchased";
     }
 
     // Called when Coin Shop changes (reroll spend, purchase spend) so unsold panels reflect

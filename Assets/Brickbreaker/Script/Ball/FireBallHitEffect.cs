@@ -7,18 +7,24 @@ public class FireBallHitEffect : BaseBallHitEffect
     [Range(0, 1)] public float spreadChance = 0.5f;
     public GameObject FireVfx;
 
-    public override void OnHitBrick(BrickController brickController)
+    protected override BallEnhanceType EnhanceType => BallEnhanceType.Fire;
+
+    protected override void ResolveHit(BrickController brickController)
     {
         DealDamage(brickController);
 
-        if (Random.value < spreadChance)
+        float chance = GetEnhancedChance(spreadChance);
+        if (Random.value < chance)
         {
             PlayVfx(FireVfx, brickController.transform.position);
 
-            List<BrickController> neighbors = GameManager.Instance.BrickManager.GetSideNeighbors(brickController);
+            // Range axis: how many tiles the spread reaches -- base 1 matches the original
+            // immediate-neighbor-only behavior exactly, Level 2/3 extend it further.
+            int reach = GetEnhancedRange(1);
+            List<BrickController> neighbors = GameManager.Instance.BrickManager.GetSideNeighbors(brickController, reach);
             foreach (BrickController neighbor in neighbors)
             {
-                DealDamage(neighbor);
+                DealSpreadDamage(neighbor);
             }
         }
     }

@@ -7,4 +7,6 @@ public class FasterSkillChargeEffect : BasePowerUpEffect
     [Range(1f, 5f)] public float ChargeMultiplier = 1.5f;
 
     public override float GetSkillChargeMultiplier() => ChargeMultiplier;
+
+    public override string GetDescription() => $"Skill charges x{ChargeMultiplier} faster";
 }

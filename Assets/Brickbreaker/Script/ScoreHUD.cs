@@ -23,6 +23,21 @@ public class ScoreHUD : BaseHUD
         // changes, not the value that already existed before this HUD subscribed.
         HandleScoreChanged(GameManager.Instance.GetScore());
         HandleWaveChanged(GameManager.Instance.GetWave());
+
+        // Read live off the state machine (not BaseHUD's own CurrentState mirror) -- that mirror
+        // only updates on the NEXT state change after Start, so it'd be stale for this priming call.
+        RefreshSkipShotButton(GameManager.Instance.StateMachine.CurrentState);
+    }
+
+    // Only meaningful to skip while balls are actually in flight.
+    protected override void OnEnterState(GameState state)
+    {
+        RefreshSkipShotButton(state);
+    }
+
+    private void RefreshSkipShotButton(GameState state)
+    {
+        SkipShotButton.interactable = state == GameState.Shooting;
     }
 
     private void HandleScoreChanged(int score)

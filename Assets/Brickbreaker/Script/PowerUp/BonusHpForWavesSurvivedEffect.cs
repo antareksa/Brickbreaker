@@ -12,4 +12,6 @@ public class BonusHpForWavesSurvivedEffect : BasePowerUpEffect
         if (WaveInterval <= 0) return 0;
         return (wavesSinceLastHpLoss > 0 && wavesSinceLastHpLoss % WaveInterval == 0) ? BonusHp : 0;
     }
+
+    public override string GetDescription() => $"+{BonusHp} HP every {WaveInterval} waves survived without losing HP";
 }

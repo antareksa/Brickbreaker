@@ -13,9 +13,19 @@ public class GameManager : MonoBehaviour
     public SoundManager SoundManager;
     public BossManager BossManager;
     public ConsumableManager ConsumableManager;
+    public BallEnhanceManager BallEnhanceManager;
 
     // Where spawned coins animate to before their value gets added.
     public Transform CollectPoint;
+
+    [Header("Display")]
+    public int TargetWidth = 1366;
+    public int TargetHeight = 768;
+
+    // Base HP cap before the ExtraChance meta-trait -- see GetMaxHp for the actual effective cap
+    // SetPlayerChanceCount clamps against and RestartGame starts the player at.
+    [Header("HP")]
+    public int MaxHP = 1;
 
     [Header("Score")]
     public float BaseScoreHit = 1f;
@@ -46,6 +56,12 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+
+        // Locked so the game renders at a fixed size regardless of the player's monitor -- on a
+        // 2K/4K display the OnGUI debug panels (which work in raw pixels and don't scale like the
+        // Canvas UI does) would otherwise shrink to be unreadable. Passing Screen.fullScreen keeps
+        // whichever window mode the player is already in.
+        Screen.SetResolution(TargetWidth, TargetHeight, Screen.fullScreen);
     }
 
     public int GetCoin() => _coin;
@@ -124,6 +140,14 @@ public class GameManager : MonoBehaviour
         OnWaveChanged?.Invoke(_wave);
     }
 
+    // Cheat/testing hook -- jumps straight to a wave so brick HP scaling can be tested without
+    // playing up to it. Board isn't respawned here; BrickManager.CheatJumpToWave does that part.
+    public void SetWave(int wave)
+    {
+        _wave = wave;
+        OnWaveChanged?.Invoke(_wave);
+    }
+
     public int GetScore() => _score;
 
     public void AddHitScore(int damage, int brickType = 1)
@@ -148,9 +172,19 @@ public class GameManager : MonoBehaviour
 
     public int GetPlayerChanceCount() => _playerChanceCount;
 
+    // Base MaxHP plus the persistent ExtraChance meta-trait (bought with Token, independent of
+    // the current run) -- this is the real cap used at runtime, not the raw MaxHP field.
+    public int GetMaxHp()
+    {
+        float traitBonus = TraitManager.Instance != null
+            ? TraitManager.Instance.GetTraitValue(TraitType.ExtraChance)
+            : 0f;
+        return MaxHP + Mathf.RoundToInt(traitBonus);
+    }
+
     public void SetPlayerChanceCount(int count)
     {
-        _playerChanceCount = count;
+        _playerChanceCount = Mathf.Min(count, GetMaxHp());
         OnPlayerChanceCountChanged?.Invoke(_playerChanceCount);
     }
 

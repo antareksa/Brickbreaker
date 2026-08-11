@@ -8,11 +8,14 @@ public class ColumnBallHitEffect : BaseBallHitEffect
     public GameObject HitVfx;
     public GameObject ColumnVfx;
 
-    public override void OnHitBrick(BrickController brickController)
+    protected override BallEnhanceType EnhanceType => BallEnhanceType.Column;
+
+    protected override void ResolveHit(BrickController brickController)
     {
         DealDamage(brickController);
 
-        if (Random.value < spreadChance)
+        float chance = GetEnhancedChance(spreadChance);
+        if (Random.value < chance)
         {
             PlayVfx(HitVfx, brickController.transform.position);
 
@@ -23,7 +26,7 @@ public class ColumnBallHitEffect : BaseBallHitEffect
             foreach (BrickController brick in columnBricks)
             {
                 if (brick == brickController) continue;
-                DealDamage(brick);
+                DealSpreadDamage(brick);
             }
         }
     }

@@ -13,4 +13,6 @@ public class LastRowBonusDamageEffect : BasePowerUpEffect
         int bottomRow = GameManager.Instance.BrickManager.BottomRow;
         return context.HitBrick.GridPosition.y == bottomRow ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"+{BonusDamage} damage to bricks on the last row";
 }

@@ -10,6 +10,15 @@ public class LauncherControllerV2 : MonoBehaviour
     public TMP_Text BallCountText;
     public float LaunchDelay;
 
+    // Large ball counts fire in groups instead of one full LaunchDelay per ball -- balls within
+    // the same group only wait GroupedLaunchDelay (small) between each other, and the full
+    // LaunchDelay only happens once between groups. Group size starts at 1 (every ball is its
+    // own group -- identical to the old one-delay-per-ball behavior) and grows by 1 for every
+    // GroupSizeStep balls owned, so a big roster still launches in a reasonable amount of time.
+    [Header("Launch Grouping (large ball counts)")]
+    public float GroupedLaunchDelay = 0.1f;
+    public int GroupSizeStep = 50;
+
     [Header("Aim Line")]
     public LineRenderer AimLineRenderer;
     public SpriteRenderer AimEndMarker;
@@ -226,14 +235,21 @@ public class LauncherControllerV2 : MonoBehaviour
         _allLaunchedThisShot = false;
         _hasFirstReturnX = false;
 
-        for (int i = 0; i < _launchManager.Balls.Count; i++)
+        int totalBalls = _launchManager.Balls.Count;
+
+        // groupSize 1 (totalBalls < GroupSizeStep) makes every ball complete its own group,
+        // which is exactly the original always-use-LaunchDelay behavior.
+        int groupSize = 1 + (totalBalls / GroupSizeStep);
+
+        for (int i = 0; i < totalBalls; i++)
         {
             _launchManager.Balls[i].Shoot(LaunchPosition.position, _direction, i);
             _activeBallCount++;
 
-            BallCountText.text = "x" + (_launchManager.Balls.Count - _activeBallCount);
+            BallCountText.text = "x" + (totalBalls - _activeBallCount);
 
-            yield return new WaitForSeconds(LaunchDelay);
+            bool completedGroup = (i + 1) % groupSize == 0;
+            yield return new WaitForSeconds(completedGroup ? LaunchDelay : GroupedLaunchDelay);
         }
         BallCountText.gameObject.SetActive(false);
         _allLaunchedThisShot = true;

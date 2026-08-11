@@ -25,9 +25,12 @@ public class BossController : MonoBehaviour
     public Transform BossHitPoint;
 
     // Shown once the boss is fully defeated -- hidden the rest of the time, same as any phase
-    // that hasn't been reached yet.
+    // that hasn't been reached yet. Never auto-hidden: FinalBossController owns it from the
+    // moment PlayDefeat shows it until the player ends it.
     public GameObject FinalScene;
-    public float FinalSceneDuration = 3f;
+
+    // Every boss has one -- the end scene is always player-driven, never a timed beat.
+    public FinalBossController FinalBossController;
 
     private int _currentIndexPhases;
 
@@ -76,6 +79,13 @@ public class BossController : MonoBehaviour
         if (FinalScene != null)
         {
             FinalScene.SetActive(true);
+        }
+
+        // Must come AFTER the SetActive above -- SkeletonGraphic.AnimationState is null while its
+        // GameObject is still inactive, so starting the playlist first would throw.
+        if (FinalBossController != null)
+        {
+            FinalBossController.StartFinalBoss();
         }
     }
 }

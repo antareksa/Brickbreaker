@@ -10,4 +10,6 @@ public class FlatCoinConsumableEffect : BaseConsumableEffect
     {
         GameManager.Instance.AddCoin(Amount);
     }
+
+    public override string GetDescription() => $"Gain {Amount} Coin";
 }

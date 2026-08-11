@@ -19,7 +19,7 @@ public class ConsumablePanel : MonoBehaviour
 
         ConsumableIcon.sprite = consumable.ConsumableImage;
         ConsumableNameText.text = consumable.ConsumableName;
-        DescriptionText.text = consumable.Description;
+        DescriptionText.text = consumable.GetDescription();
 
         UseButton.onClick.RemoveAllListeners();
         UseButton.onClick.AddListener(HandleUseClicked);

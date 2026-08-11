@@ -25,16 +25,16 @@ PrefabInstance:
       value: BombBall
       objectReference: {fileID: 0}
     - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: Rarity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: BallIcon
       value: 
       objectReference: {fileID: 21300000, guid: a98f60d4f7155ec42944927e2b4cba4d, type: 3}
     - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: BallName
       value: Bomb Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
-      propertyPath: Rarity
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: m_LocalPosition.x

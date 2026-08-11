@@ -7,4 +7,6 @@ public class ExtraSkillTriggerEffect : BasePowerUpEffect
     public int ExtraTriggers = 1;
 
     public override int GetBonusSkillTriggers() => ExtraTriggers;
+
+    public override string GetDescription() => $"Skill triggers {ExtraTriggers} extra time{(ExtraTriggers == 1 ? "" : "s")} per activation";
 }

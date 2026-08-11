@@ -22,4 +22,6 @@ public class DamageBottomRowConsumableEffect : BaseConsumableEffect
             brick.DamageBrick(Damage);
         }
     }
+
+    public override string GetDescription() => $"Deal {Damage} damage to every brick in the bottom row";
 }

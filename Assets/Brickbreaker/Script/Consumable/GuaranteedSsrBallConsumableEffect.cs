@@ -10,4 +10,6 @@ public class GuaranteedSsrBallConsumableEffect : BaseConsumableEffect
     {
         GameManager.Instance.LaunchManager.GuaranteeSsrNextBall();
     }
+
+    public override string GetDescription() => "Your next ball purchase is guaranteed SSR";
 }

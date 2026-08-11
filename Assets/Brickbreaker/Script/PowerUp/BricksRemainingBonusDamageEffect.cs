@@ -10,4 +10,6 @@ public class BricksRemainingBonusDamageEffect : BasePowerUpEffect
     {
         return Mathf.FloorToInt(DamagePerBrickRemaining * context.BricksRemainingOnField);
     }
+
+    public override string GetDescription() => $"+{DamagePerBrickRemaining} damage per brick left on the board";
 }

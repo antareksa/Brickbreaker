@@ -7,4 +7,6 @@ public class SkillChargeLeftoverEffect : BasePowerUpEffect
     public float LeftoverAmount = 10f;
 
     public override float GetSkillChargeLeftover() => LeftoverAmount;
+
+    public override string GetDescription() => $"Skill keeps {LeftoverAmount} charge after activating instead of resetting to 0";
 }

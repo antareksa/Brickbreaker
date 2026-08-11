@@ -11,4 +11,6 @@ public class EvenBounceBonusDamageEffect : BasePowerUpEffect
     {
         return context.BouncesThisShot > 0 && context.BouncesThisShot % 2 == 0 ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"+{BonusDamage} damage on even-numbered bounces";
 }

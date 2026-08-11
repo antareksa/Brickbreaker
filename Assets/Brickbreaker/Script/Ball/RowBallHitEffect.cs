@@ -8,24 +8,26 @@ public class RowBallHitEffect : BaseBallHitEffect
     public GameObject HitVfx;
     public GameObject RowVfx;
 
-    public override void OnHitBrick(BrickController brickController)
+    protected override BallEnhanceType EnhanceType => BallEnhanceType.Row;
+
+    protected override void ResolveHit(BrickController brickController)
     {
         DealDamage(brickController);
 
-        if (Random.value < spreadChance)
+        float chance = GetEnhancedChance(spreadChance);
+        if (Random.value < chance)
         {
             PlayVfx(HitVfx, brickController.transform.position);
 
             int row = brickController.GridPosition.y;
             Vector3 vfxPosition = GameManager.Instance.BrickManager.GetRowLeftWorldPosition(row);
-            Debug.Log($"[RowVFX debug] hit brick grid pos={brickController.GridPosition}, brick world pos={brickController.transform.position}, computed row={row}, computed vfxPosition={vfxPosition}");
             PlayVfx(RowVfx, vfxPosition);
 
             List<BrickController> rowBricks = GameManager.Instance.BrickManager.GetBricksInRow(row);
             foreach (BrickController brick in rowBricks)
             {
                 if (brick == brickController) continue;
-                DealDamage(brick);
+                DealSpreadDamage(brick);
             }
         }
     }

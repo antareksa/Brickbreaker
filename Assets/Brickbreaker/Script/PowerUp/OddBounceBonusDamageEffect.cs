@@ -10,4 +10,6 @@ public class OddBounceBonusDamageEffect : BasePowerUpEffect
     {
         return context.BouncesThisShot % 2 == 1 ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"+{BonusDamage} damage on odd-numbered bounces";
 }

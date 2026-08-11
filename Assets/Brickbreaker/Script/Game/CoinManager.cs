@@ -75,6 +75,17 @@ public class CoinManager : MonoBehaviour
             yield return null;
         }
 
+        // CoinRewardBoost is a persistent meta-trait (percent, e.g. 20 = +20%), applied before
+        // the session-scoped PowerUp multipliers.
+        if (TraitManager.Instance != null)
+        {
+            float traitPercent = TraitManager.Instance.GetTraitValue(TraitType.CoinRewardBoost);
+            if (traitPercent > 0f)
+            {
+                totalValue = Mathf.RoundToInt(totalValue * (1f + traitPercent / 100f));
+            }
+        }
+
         if (PowerUpManager.Instance != null)
         {
             totalValue = Mathf.RoundToInt(totalValue * PowerUpManager.Instance.GetTotalCoinValueMultiplier());

@@ -10,4 +10,6 @@ public class SideWallBonusDamageEffect : BasePowerUpEffect
     {
         return context.SideWallBounceSinceLastHit ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"+{BonusDamage} damage on the next hit after bouncing off a side wall";
 }

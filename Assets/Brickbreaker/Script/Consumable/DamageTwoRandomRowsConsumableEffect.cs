@@ -38,4 +38,6 @@ public class DamageTwoRandomRowsConsumableEffect : BaseConsumableEffect
             }
         }
     }
+
+    public override string GetDescription() => $"Deal {Damage} damage to every brick in two random rows";
 }

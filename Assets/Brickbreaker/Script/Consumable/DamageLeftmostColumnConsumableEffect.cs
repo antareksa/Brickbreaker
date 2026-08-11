@@ -17,4 +17,6 @@ public class DamageLeftmostColumnConsumableEffect : BaseConsumableEffect
             brick.DamageBrick(Damage);
         }
     }
+
+    public override string GetDescription() => $"Deal {Damage} damage to every brick in the leftmost column";
 }

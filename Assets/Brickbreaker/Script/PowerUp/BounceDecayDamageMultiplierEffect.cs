@@ -14,4 +14,6 @@ public class BounceDecayDamageMultiplierEffect : BasePowerUpEffect
         float multiplier = BaseMultiplier * Mathf.Pow(1f - DecayPerBounce, context.BouncesThisShot);
         return Mathf.Max(multiplier, MinMultiplier);
     }
+
+    public override string GetDescription() => $"x{BaseMultiplier} damage, -{DecayPerBounce * 100f:F0}% per bounce this shot (min x{MinMultiplier})";
 }

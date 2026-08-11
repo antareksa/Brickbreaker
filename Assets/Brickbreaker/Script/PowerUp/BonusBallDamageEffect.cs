@@ -7,4 +7,6 @@ public class BonusBallDamageEffect : BasePowerUpEffect
     public int BonusDamage = 1;
 
     public override int GetBonusBallDamage() => BonusDamage;
+
+    public override string GetDescription() => $"+{BonusDamage} damage on every ball hit";
 }

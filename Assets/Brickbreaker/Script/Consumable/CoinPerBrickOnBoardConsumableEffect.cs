@@ -12,4 +12,6 @@ public class CoinPerBrickOnBoardConsumableEffect : BaseConsumableEffect
         int brickCount = GameManager.Instance.BrickManager.GetBrickCount();
         GameManager.Instance.AddCoin(brickCount * CoinPerBrick);
     }
+
+    public override string GetDescription() => $"Gain {CoinPerBrick} Coin per brick currently on the board";
 }

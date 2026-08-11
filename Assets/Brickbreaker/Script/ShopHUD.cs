@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-// Layout mirrors the Balatro-style reference: CardOffer (top, PowerUp picks -- 100% PowerUp for
-// now, no Consumable pool yet) + PackOffer (bottom, Ball Enhance packs -- scaffolding only,
-// not implemented yet) + Reroll + Next. BrickManager opens this after a boss phase/defeat
-// change and waits on IsOpen before continuing to AdvanceWave.
+// Layout mirrors the Balatro-style reference: CardOffer (top, PowerUp + Consumable picks,
+// weighted/rerollable) + PackOffer (bottom, Ball Enhance packs -- fixed, not rerollable) +
+// Reroll + Next. BrickManager opens this after a boss phase/defeat change and waits on IsOpen
+// before continuing to AdvanceWave.
 public class ShopHUD : BaseHUD
 {
     public GameObject PopupRoot;
@@ -21,8 +22,14 @@ public class ShopHUD : BaseHUD
     // from roster size.
     [Range(0f, 1f)] public float PowerUpOfferChance = 0.6f;
 
-    [Header("Pack Offer (Ball Enhance -- not implemented yet)")]
+    // Exactly 2 sealed offers, fixed per the design doc -- explicit fields instead of a list
+    // since the count never changes. Buying either one opens RevealPopup (shared -- only one
+    // pack is ever being revealed/picked-from at a time) with that pack's rolled contents.
+    [Header("Pack Offer (Ball Enhance)")]
     public GameObject PackOfferSection;
+    public BallEnhancePackOfferPanel BallEnhancePackOffer1;
+    public BallEnhancePackOfferPanel BallEnhancePackOffer2;
+    public BallEnhanceRevealPopup RevealPopup;
 
     [Header("Buttons")]
     public Button RerollButton;
@@ -35,6 +42,10 @@ public class ShopHUD : BaseHUD
     public TMP_Text CoinShopText;
 
     public bool IsOpen { get; private set; }
+
+    // Lets other HUDs (e.g. PowerUpHUD's Sell button) react to the Shop opening/closing without
+    // polling IsOpen every frame.
+    public UnityEvent<bool> OnShopOpenChanged = new UnityEvent<bool>();
 
     // Escalates each reroll within a visit (RerollCostIncrement per reroll), reset back to
     // RerollCost every time the shop opens.
@@ -60,13 +71,29 @@ public class ShopHUD : BaseHUD
 
         _currentRerollCost = RerollCost;
         GenerateCardOffers();
+        GenerateBallEnhancePackOffers();
         HandleCoinShopChanged(GameManager.Instance.GetCoinShop());
+
+        OnShopOpenChanged?.Invoke(true);
+    }
+
+    // Not rerollable -- generated once per Open(), unlike GenerateCardOffers which also runs on
+    // every reroll.
+    private void GenerateBallEnhancePackOffers()
+    {
+        BallEnhancePackOffer1.Generate();
+        BallEnhancePackOffer1.OnBought = RevealPopup.Open;
+
+        BallEnhancePackOffer2.Generate();
+        BallEnhancePackOffer2.OnBought = RevealPopup.Open;
     }
 
     public void Close()
     {
         IsOpen = false;
         PopupRoot.SetActive(false);
+
+        OnShopOpenChanged?.Invoke(false);
     }
 
     private void HandleRerollClicked()
@@ -191,6 +218,9 @@ public class ShopHUD : BaseHUD
         {
             panel.RefreshAffordability(amount);
         }
+
+        BallEnhancePackOffer1.RefreshAffordability(amount);
+        BallEnhancePackOffer2.RefreshAffordability(amount);
     }
 
     private void RefreshRerollButton()

@@ -12,4 +12,6 @@ public class SkillBonusAboveBrickThresholdEffect : BasePowerUpEffect
         int brickCount = GameManager.Instance.BrickManager.GetBrickCount();
         return brickCount > BrickCountThreshold ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"Skill deals +{BonusDamage} damage while more than {BrickCountThreshold} bricks are on the board";
 }

@@ -14,6 +14,8 @@ public class MainMenuHUD : BaseHUD
 
         StartButton.onClick.AddListener(HandleStartClicked);
         UpgradeButton.onClick.AddListener(HandleUpgradeClicked);
+
+        Open();
     }
 
     public void Open()

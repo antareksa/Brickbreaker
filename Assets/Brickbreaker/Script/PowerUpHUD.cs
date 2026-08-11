@@ -7,6 +7,7 @@ public class PowerUpHUD : BaseHUD
 {
     public PowerUpPanel PanelPrefab;
     public Transform PanelContainer;
+    public ShopHUD ShopHUD;
 
     private readonly List<PowerUpPanel> _panels = new List<PowerUpPanel>();
 
@@ -15,6 +16,7 @@ public class PowerUpHUD : BaseHUD
         base.Start();
 
         PowerUpManager.Instance.OnPowerUpsChanged.AddListener(RefreshPanels);
+        ShopHUD.OnShopOpenChanged.AddListener(HandleShopOpenChanged);
 
         // Prime the display with whatever's already equipped -- a subscription only fires on
         // future changes, not the state that already existed before this HUD subscribed.
@@ -35,7 +37,16 @@ public class PowerUpHUD : BaseHUD
         {
             PowerUpPanel panel = Instantiate(PanelPrefab, PanelContainer);
             panel.SetInfo(powerUp);
+            panel.SetSellButtonVisible(ShopHUD.IsOpen);
             _panels.Add(panel);
+        }
+    }
+
+    private void HandleShopOpenChanged(bool isOpen)
+    {
+        foreach (PowerUpPanel panel in _panels)
+        {
+            panel.SetSellButtonVisible(isOpen);
         }
     }
 }

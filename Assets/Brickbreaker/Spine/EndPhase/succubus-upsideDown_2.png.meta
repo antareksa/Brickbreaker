@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: a32bf83cc3aa37848a1a44b0c18b6f81
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4246811954128472822
+    second: succubus-upsideDown_2_0
+  - first:
+      213: 4823775741651610864
+    second: succubus-upsideDown_2_1
+  - first:
+      213: -3145944417093224086
+    second: succubus-upsideDown_2_2
+  - first:
+      213: 3105482366511507207
+    second: succubus-upsideDown_2_3
+  - first:
+      213: -4751996723792005622
+    second: succubus-upsideDown_2_4
+  - first:
+      213: -8920536888032938835
+    second: succubus-upsideDown_2_5
+  - first:
+      213: -786595850331428296
+    second: succubus-upsideDown_2_6
+  - first:
+      213: 2550861508535787617
+    second: succubus-upsideDown_2_7
+  - first:
+      213: 1785633022913128995
+    second: succubus-upsideDown_2_8
+  - first:
+      213: 124886539672337700
+    second: succubus-upsideDown_2_9
+  - first:
+      213: 4082549905499522216
+    second: succubus-upsideDown_2_10
+  - first:
+      213: 3446439957141179036
+    second: succubus-upsideDown_2_11
+  - first:
+      213: -8982341552188540241
+    second: succubus-upsideDown_2_12
+  - first:
+      213: 7474195979241257561
+    second: succubus-upsideDown_2_13
+  - first:
+      213: -5856233958406935499
+    second: succubus-upsideDown_2_14
+  - first:
+      213: -9204961662231888507
+    second: succubus-upsideDown_2_15
+  - first:
+      213: 3918122821932498186
+    second: succubus-upsideDown_2_16
+  - first:
+      213: 7911532330400120395
+    second: succubus-upsideDown_2_17
+  - first:
+      213: 3747285397753604127
+    second: succubus-upsideDown_2_18
+  - first:
+      213: -7573989223229597795
+    second: succubus-upsideDown_2_19
+  - first:
+      213: 4484370024445675184
+    second: succubus-upsideDown_2_20
+  - first:
+      213: 7896137901800731656
+    second: succubus-upsideDown_2_21
+  - first:
+      213: -7233010385082428238
+    second: succubus-upsideDown_2_22
+  - first:
+      213: 6530586445682815224
+    second: succubus-upsideDown_2_23
+  - first:
+      213: -2462953613815858132
+    second: succubus-upsideDown_2_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1861
+        width: 263
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a053a4e370b4015c0800000000000000
+      internalID: -4246811954128472822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_1
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1861
+        width: 113
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc6a45ca7e71f240800000000000000
+      internalID: 4823775741651610864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1860
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a69f808783c5754d0800000000000000
+      internalID: -3145944417093224086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_3
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1861
+        width: 112
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707682042c3e81b20800000000000000
+      internalID: 3105482366511507207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_4
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1962
+        width: 130
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06be8828248d0eb0800000000000000
+      internalID: -4751996723792005622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_5
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1860
+        width: 118
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4370f96f2e33480800000000000000
+      internalID: -8920536888032938835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_6
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 1750
+        width: 512
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ae23fdd337515f0800000000000000
+      internalID: -786595850331428296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_7
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 1769
+        width: 328
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1602e77e60b766320800000000000000
+      internalID: 2550861508535787617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_8
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 1769
+        width: 361
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32aa1fd06c7d7c810800000000000000
+      internalID: 1785633022913128995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_9
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 1860
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42db56a65afabb100800000000000000
+      internalID: 124886539672337700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_10
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1130
+        width: 730
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a48a1f328128a830800000000000000
+      internalID: 4082549905499522216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_11
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 1166
+        width: 605
+        height: 582
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9acc1981e634df20800000000000000
+      internalID: 3446439957141179036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_12
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 1166
+        width: 575
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa3292e2ff485380800000000000000
+      internalID: -8982341552188540241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 966
+        height: 1126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95af354a4ada9b760800000000000000
+      internalID: 7474195979241257561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_14
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 638
+        width: 704
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c23931e3a7abea0800000000000000
+      internalID: -5856233958406935499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_15
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 637
+        width: 239
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d349f5328614080800000000000000
+      internalID: -9204961662231888507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_16
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 794
+        width: 68
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d33ab82f7ff5630800000000000000
+      internalID: 3918122821932498186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_17
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 733
+        width: 95
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e7486ccb86bcd60800000000000000
+      internalID: 7911532330400120395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_18
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 1
+        width: 716
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18ac1d1738010430800000000000000
+      internalID: 3747285397753604127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_19
+      rect:
+        serializedVersion: 2
+        x: 1918
+        y: 624
+        width: 100
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9753c02ee8c3e690800000000000000
+      internalID: -7573989223229597795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_20
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 1
+        width: 233
+        height: 577
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b68e7c27ceab3e30800000000000000
+      internalID: 4484370024445675184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_21
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 521
+        width: 111
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 804b45e0697b49d60800000000000000
+      internalID: 7896137901800731656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_22
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 400
+        width: 108
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4537c706f2f9b90800000000000000
+      internalID: -7233010385082428238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 318
+        width: 127
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0b7e595cd41aa50800000000000000
+      internalID: 6530586445682815224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-upsideDown_2_24
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 2
+        width: 97
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cbd3eccb4d1ddd0800000000000000
+      internalID: -2462953613815858132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      succubus-upsideDown_2_0: -4246811954128472822
+      succubus-upsideDown_2_1: 4823775741651610864
+      succubus-upsideDown_2_10: 4082549905499522216
+      succubus-upsideDown_2_11: 3446439957141179036
+      succubus-upsideDown_2_12: -8982341552188540241
+      succubus-upsideDown_2_13: 7474195979241257561
+      succubus-upsideDown_2_14: -5856233958406935499
+      succubus-upsideDown_2_15: -9204961662231888507
+      succubus-upsideDown_2_16: 3918122821932498186
+      succubus-upsideDown_2_17: 7911532330400120395
+      succubus-upsideDown_2_18: 3747285397753604127
+      succubus-upsideDown_2_19: -7573989223229597795
+      succubus-upsideDown_2_2: -3145944417093224086
+      succubus-upsideDown_2_20: 4484370024445675184
+      succubus-upsideDown_2_21: 7896137901800731656
+      succubus-upsideDown_2_22: -7233010385082428238
+      succubus-upsideDown_2_23: 6530586445682815224
+      succubus-upsideDown_2_24: -2462953613815858132
+      succubus-upsideDown_2_3: 3105482366511507207
+      succubus-upsideDown_2_4: -4751996723792005622
+      succubus-upsideDown_2_5: -8920536888032938835
+      succubus-upsideDown_2_6: -786595850331428296
+      succubus-upsideDown_2_7: 2550861508535787617
+      succubus-upsideDown_2_8: 1785633022913128995
+      succubus-upsideDown_2_9: 124886539672337700
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

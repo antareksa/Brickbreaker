@@ -8,4 +8,6 @@ public class DoubleCoinThisWaveConsumableEffect : BaseConsumableEffect
     {
         GameManager.Instance.CoinManager.DoubleNextCollection();
     }
+
+    public override string GetDescription() => "Double the Coin collected this wave";
 }

@@ -22,6 +22,13 @@ public class LaunchManager : MonoBehaviour
     public float SRWeight = 15f;
     public float SSRWeight = 5f;
 
+    // How much each point of the GachaRarityBoost meta-trait raises SR/SSR weight (0.15 = +15%
+    // per point, matching that trait's description). Only SR/SSR are boosted -- N/R keep their
+    // base weight, so raising these shifts the odds toward the rarer tiers.
+    [Header("Gacha Rarity Trait Boost")]
+    public float SRWeightBoostPerTraitPoint = 0.15f;
+    public float SSRWeightBoostPerTraitPoint = 0.05f;
+
     // Flat per-bundle costs, not a per-ball rate -- 6 balls (220) isn't just 6x the 1-ball
     // price (40), it's a discounted bundle.
     public int OneBallCost = 40;
@@ -109,12 +116,16 @@ public class LaunchManager : MonoBehaviour
 
     public float GetWeightForRarity(Rarity rarity)
     {
+        float traitPoints = TraitManager.Instance != null
+            ? TraitManager.Instance.GetTraitValue(TraitType.GachaRarityBoost)
+            : 0f;
+
         switch (rarity)
         {
             case Rarity.N: return NWeight;
             case Rarity.R: return RWeight;
-            case Rarity.SR: return SRWeight;
-            case Rarity.SSR: return SSRWeight;
+            case Rarity.SR: return SRWeight * (1f + traitPoints * SRWeightBoostPerTraitPoint);
+            case Rarity.SSR: return SSRWeight * (1f + traitPoints * SSRWeightBoostPerTraitPoint);
             default: return 0f;
         }
     }

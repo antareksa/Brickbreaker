@@ -7,4 +7,6 @@ public class BonusHpOnSkillTriggerEffect : BasePowerUpEffect
     public int BonusHp = 1;
 
     public override int GetBonusHpOnSkillTrigger() => BonusHp;
+
+    public override string GetDescription() => $"+{BonusHp} HP whenever the Skill triggers";
 }

@@ -10,4 +10,6 @@ public class FlatHpConsumableEffect : BaseConsumableEffect
     {
         GameManager.Instance.SetPlayerChanceCount(GameManager.Instance.GetPlayerChanceCount() + BonusHp);
     }
+
+    public override string GetDescription() => $"Gain {BonusHp} HP";
 }

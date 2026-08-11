@@ -48,6 +48,16 @@ public class PowerUpManager : MonoBehaviour
         OnPowerUpsChanged?.Invoke();
     }
 
+    // Frees the slot and refunds half the BuyCost (rounded down) as Coin Shop, per the Shop
+    // doc's sell-back rule -- lets the player respec into a different PowerUp mid-run.
+    public void Sell(BasePowerUp powerUp)
+    {
+        if (!_equippedPowerUps.Contains(powerUp)) return;
+
+        Unequip(powerUp);
+        GameManager.Instance.AddCoinShop(powerUp.BuyCost / 2);
+    }
+
     public void ResetPowerUps()
     {
         _equippedPowerUps.Clear();

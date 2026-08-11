@@ -7,4 +7,6 @@ public class FlatSkillBonusDamageEffect : BasePowerUpEffect
     public int BonusDamage = 10;
 
     public override int GetBonusSkillDamage() => BonusDamage;
+
+    public override string GetDescription() => $"Skill deals +{BonusDamage} damage";
 }

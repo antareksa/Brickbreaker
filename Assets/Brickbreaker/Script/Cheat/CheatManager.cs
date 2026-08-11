@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 // Debug-only cheat actions for testing -- not part of normal gameplay flow.
@@ -28,6 +29,15 @@ public class CheatManager : MonoBehaviour
         GameManager.Instance.BrickManager.RestartGame();
     }
 
+    // Rebuilds the board at the given wave's difficulty, leaving PowerUps/Consumables/enhances/
+    // balls alone so a test setup can be assembled in any order. Negatives are bumped to 1 rather
+    // than passed through -- BrickConfig's per-wave curves aren't defined below 0.
+    public void JumpToWave(int wave)
+    {
+        if (wave < 0) wave = 1;
+        GameManager.Instance.BrickManager.CheatJumpToWave(wave);
+    }
+
     // Routed through BrickManager's normal hit-queue/Shop flow -- not a direct BossManager call
     // -- so cheat-testing a phase kill still opens the Shop the same way a real one would.
     public void AttackBoss(int hitCount)
@@ -55,5 +65,42 @@ public class CheatManager : MonoBehaviour
     {
         if (consumable == null) return;
         ConsumableManager.Instance.TryUse(consumable);
+    }
+
+    // Roster lookups are 1-based so the numbers typed into the cheat panel line up with how the
+    // rosters are listed/documented -- out-of-range input is a silent no-op rather than a throw.
+    public BasePowerUp GetPowerUpByNumber(int number)
+    {
+        List<BasePowerUp> roster = PowerUpManager.Instance.Roster;
+        return number >= 1 && number <= roster.Count ? roster[number - 1] : null;
+    }
+
+    public BaseConsumable GetConsumableByNumber(int number)
+    {
+        List<BaseConsumable> roster = ConsumableManager.Instance.Roster;
+        return number >= 1 && number <= roster.Count ? roster[number - 1] : null;
+    }
+
+    public void AddPowerUpByNumber(int number)
+    {
+        AddPowerUp(GetPowerUpByNumber(number));
+    }
+
+    public void AddConsumableByNumber(int number)
+    {
+        AddConsumable(GetConsumableByNumber(number));
+    }
+
+    public void UseConsumableByNumber(int number)
+    {
+        UseConsumable(GetConsumableByNumber(number));
+    }
+
+    // Skips the pack purchase/reveal flow entirely and just levels the (type, axis) directly --
+    // fails silently (no-op) if already maxed or the axis doesn't apply to this type (e.g.
+    // Range on Row/Column/Cross).
+    public void UpgradeBallEnhance(BallEnhanceType type, BallEnhanceAxis axis)
+    {
+        BallEnhanceManager.Instance.TryUpgrade(type, axis);
     }
 }

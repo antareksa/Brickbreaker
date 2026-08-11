@@ -10,4 +10,6 @@ public class WallBounceFirstHitBonusDamageEffect : BasePowerUpEffect
     {
         return context.HitWallBeforeAnyBrick ? BonusDamage : 0;
     }
+
+    public override string GetDescription() => $"+{BonusDamage} damage if the ball hit a wall before any brick";
 }

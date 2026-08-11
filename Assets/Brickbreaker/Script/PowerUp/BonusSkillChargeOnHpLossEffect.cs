@@ -7,4 +7,6 @@ public class BonusSkillChargeOnHpLossEffect : BasePowerUpEffect
     public float BonusCharge = 20f;
 
     public override float GetBonusSkillChargeOnHpLoss() => BonusCharge;
+
+    public override string GetDescription() => $"+{BonusCharge} Skill charge whenever you lose HP";
 }

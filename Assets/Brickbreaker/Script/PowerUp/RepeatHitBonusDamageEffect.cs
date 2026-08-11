@@ -1,8 +1,9 @@
 using UnityEngine;
 
 // #8: Balls deal bonus damage on re-hitting the same brick within one shot, capped at +5.
-// HitBrick.HitsThisShot reflects hits BEFORE this one (DamageBrick, which increments it, runs
-// after this is evaluated) -- so it's already exactly the "repeat hit count" needed here.
+// Counted per (ball, brick) via BallHitContext.RepeatHitsOnBrick -- only the SAME ball coming
+// back around to the SAME brick earns this, so another ball's hits (or spread/skill damage on
+// that brick) don't feed it.
 [CreateAssetMenu(fileName = "RepeatHitBonusDamageEffect", menuName = "Brickbreaker/PowerUp Effect/Repeat Hit Bonus Damage")]
 public class RepeatHitBonusDamageEffect : BasePowerUpEffect
 {
@@ -11,9 +12,8 @@ public class RepeatHitBonusDamageEffect : BasePowerUpEffect
 
     public override int GetBonusDamage(BallHitContext context)
     {
-        if (context.HitBrick == null) return 0;
-
-        int repeatHits = context.HitBrick.HitsThisShot;
-        return Mathf.Min(BonusDamagePerRepeatHit * repeatHits, MaxBonusDamage);
+        return Mathf.Min(BonusDamagePerRepeatHit * context.RepeatHitsOnBrick, MaxBonusDamage);
     }
+
+    public override string GetDescription() => $"+{BonusDamagePerRepeatHit} damage each time the same ball re-hits the same brick (max +{MaxBonusDamage})";
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,9 +7,9 @@ using UnityEngine.Events;
 // this class never touches. Only reachable through SkillManager routing Skill damage here.
 // Owns boss state (which boss, phase, HP, defeated) and decides when transitions happen; each
 // BossController is just the presentation (phase GameObjects + animations) for one boss,
-// driven directly from here. Defeating a boss that isn't last in the list shows its final scene
-// for a bit, then swaps in the next boss and play continues; only the last boss's defeat is a
-// real "IsDefeated".
+// driven directly from here. Defeating any boss shows its final scene and hands control to that
+// boss's FinalBossController; nothing is auto-hidden, and the next boss is only swapped in once
+// the player ends that scene (Continue). Only the last boss's defeat is a real "IsDefeated".
 public class BossManager : MonoBehaviour
 {
     public List<BossController> Bosses;
@@ -27,6 +26,11 @@ public class BossManager : MonoBehaviour
     public UnityEvent<int> OnPhaseChanged = new UnityEvent<int>();
     public UnityEvent OnBossDamaged = new UnityEvent();
     public UnityEvent OnBossDefeated = new UnityEvent();
+
+    // Fired when a defeated boss's end scene goes up and when the player ends it (resume whatever
+    // comes next -- the next boss, or the run being over).
+    public UnityEvent OnAwaitingContinue = new UnityEvent();
+    public UnityEvent OnContinued = new UnityEvent();
 
     public bool IsDefeated { get; private set; }
     public int CurrentPhaseIndex { get; private set; }
@@ -52,12 +56,15 @@ public class BossManager : MonoBehaviour
         return 1f + (bossNumber - 1) * BossScalarGrowthPerBoss;
     }
 
-    // True from the moment a non-final boss dies until the next one is activated -- blocks
-    // DamageBoss from re-triggering PlayDefeat/a second overlapping hide-coroutine if another
-    // hit lands during that window (IsDefeated itself stays false here since a next boss is
-    // still coming). Exposed publicly so callers queuing up multiple hits (BrickManager) can
-    // tell a transition just started and stop feeding it more hits.
+    // True from the moment any boss dies until Continue() resolves its end scene -- blocks
+    // DamageBoss from re-triggering PlayDefeat if another hit lands during that window (IsDefeated
+    // itself stays false for a mid-run boss since a next boss is still coming). Exposed publicly
+    // so callers queuing up multiple hits (BrickManager) can tell a transition just started and
+    // stop feeding it more hits.
     public bool IsTransitioning { get; private set; }
+
+    // True from the moment a defeated boss's end scene appears until Continue() ends it.
+    public bool IsAwaitingContinue { get; private set; }
 
     // No longer auto-starts here -- BrickManager.RestartGame() already calls ResetBoss() as part
     // of the MainMenuHUD Start / GameOverHUD Restart flow, same as brick spawning.
@@ -69,6 +76,11 @@ public class BossManager : MonoBehaviour
         foreach (BossController boss in Bosses)
         {
             boss.gameObject.SetActive(false);
+
+            // Hide the end scene explicitly -- restarting while it was still up (Continue never
+            // pressed) would otherwise leave its own active flag set, so it'd reappear the moment
+            // that boss's root is reactivated.
+            if (boss.FinalScene != null) boss.FinalScene.SetActive(false);
         }
 
         ActivateCurrentBoss();
@@ -77,6 +89,8 @@ public class BossManager : MonoBehaviour
     private void ActivateCurrentBoss()
     {
         IsDefeated = false;
+        IsAwaitingContinue = false;
+        IsTransitioning = false;
         CurrentPhaseIndex = 0;
         CurrentPhaseHP = GetPhaseHP(CurrentBossIndex, CurrentPhaseIndex);
 
@@ -143,8 +157,13 @@ public class BossManager : MonoBehaviour
     {
         if (IsDefeated || IsTransitioning) return;
 
-        BossController finishedBoss = BossController;
-        finishedBoss.PlayDefeat();
+        BossController.PlayDefeat();
+
+        // Every boss's end scene is player-driven (FinalBossController), so the wait is the same
+        // whether or not another boss is coming -- nothing is on a timer. IsTransitioning stays
+        // set for the whole window so queued hits can't land on an already-defeated boss.
+        IsTransitioning = true;
+        IsAwaitingContinue = true;
 
         bool hasNextBoss = CurrentBossIndex < Bosses.Count - 1;
         if (!hasNextBoss)
@@ -152,33 +171,39 @@ public class BossManager : MonoBehaviour
             IsDefeated = true;
             OnBossDefeated?.Invoke();
         }
-        else
-        {
-            IsTransitioning = true;
-        }
 
-        StartCoroutine(HideFinalSceneAfterDelay(finishedBoss, hasNextBoss));
+        OnAwaitingContinue?.Invoke();
     }
 
-    private IEnumerator HideFinalSceneAfterDelay(BossController defeatedBoss, bool hasNextBoss)
+    // Called by FinalBossController.EndFinalBoss when the player finishes the end scene. Also
+    // usable straight from a Button's OnClick -- it takes no arguments, so no extra script is
+    // needed between the button and here.
+    public void Continue()
     {
-        yield return new WaitForSeconds(defeatedBoss.FinalSceneDuration);
+        if (!IsAwaitingContinue) return;
 
-        // Reset FinalScene's own active state regardless of path -- deactivating just the boss
+        IsAwaitingContinue = false;
+
+        BossController finishedBoss = BossController;
+
+        // Reset FinalScene's own active state as well as the boss root -- deactivating just the
         // root isn't enough if that same root gets reactivated for "the next boss" (e.g. Bosses
         // reusing the same GameObject), since FinalScene's own flag would still read active.
-        if (defeatedBoss.FinalScene != null)
+        if (finishedBoss.FinalScene != null)
         {
-            defeatedBoss.FinalScene.SetActive(false);
+            finishedBoss.FinalScene.SetActive(false);
         }
 
+        bool hasNextBoss = CurrentBossIndex < Bosses.Count - 1;
         if (hasNextBoss)
         {
-            defeatedBoss.gameObject.SetActive(false);
+            finishedBoss.gameObject.SetActive(false);
             CurrentBossIndex++;
             ActivateCurrentBoss();
-            IsTransitioning = false;
         }
+
+        IsTransitioning = false;
+        OnContinued?.Invoke();
     }
 
     // Boss attacking the player isn't built yet -- just the event hook other systems can listen

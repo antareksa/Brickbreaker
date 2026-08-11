@@ -13,4 +13,6 @@ public class BricksDestroyedThisShotBonusDamageEffect : BasePowerUpEffect
     {
         return Mathf.Min(BonusDamagePerBrickDestroyed * context.BricksDestroyedThisShot, MaxBonusDamage);
     }
+
+    public override string GetDescription() => $"+{BonusDamagePerBrickDestroyed} damage per brick already destroyed this shot (max +{MaxBonusDamage})";
 }

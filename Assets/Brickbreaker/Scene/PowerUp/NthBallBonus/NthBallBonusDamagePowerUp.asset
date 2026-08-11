@@ -11,8 +11,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41e4a6d1b4e06054b8ba2a00995f67b9, type: 3}
   m_Name: NthBallBonusDamagePowerUp
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   PowerUpImage: {fileID: 0}
-  PowerUpName: Nth Ball Bonus Damage
-  Description: Every Nth ball fired deals bonus/guaranteed-crit damage
+  PowerUpName: Every 3rd Ball Bonus Damage
+  Description: Every 3rd ball fired deals +2 damage for the whole shot
   Effect: {fileID: 11400000, guid: 710f1f6ddbc4cd7a2e625cc149333343, type: 2}
+  BuyCost: 3

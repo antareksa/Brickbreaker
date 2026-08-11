@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0bff6de8214aed23737833da3bc1ba, type: 3}
   m_Name: BounceScalingBonusDamageEffect
   m_EditorClassIdentifier:
-  BonusDamagePerBounce: 1
+  BouncesPerStep: 10
+  BonusDamagePerStep: 1
+  MaxBonusDamage: 10

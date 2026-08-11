@@ -7,4 +7,6 @@ public class BlockHpLossChanceEffect : BasePowerUpEffect
     [Range(0f, 1f)] public float Chance = 0.2f;
 
     public override float GetBlockHpLossChance() => Chance;
+
+    public override string GetDescription() => $"{Chance * 100f:F0}% chance to block an HP loss";
 }

@@ -20,9 +20,19 @@ public class BrickManager : MonoBehaviour
     public Vector2Int SpawnColumnRange = new Vector2Int(1, 6);
     public int BottomRow = 0;
 
-    // How many times the player can be saved from a brick reaching the bottom before it's
-    // actually Game Over -- was a one-shot bool, now a count since multiple saves are possible.
-    public int StartingPlayerChanceCount = 1;
+    // Pause between bricks reaching the bottom (boss attack lands) and the bottom rows actually
+    // being cleared -- without it they vanish the same frame, with no chance to read what hit you.
+    [Header("Descend")]
+    public float BottomRowClearDelay = 0.5f;
+
+    // Animator speed multiplier for bricks that actually landed on the bottom, applied for the
+    // BottomRowClearDelay beat before they're cleared.
+    public float BottomRowDangerAnimationSpeed = 2f;
+
+    // Token awarded at game over, scaled by how far the player got -- the only source of the
+    // meta-progression currency TraitManager spends on trait upgrades.
+    [Header("Token Reward")]
+    public float TokensPerWave = 1f;
 
     // Every brick destroyed chips at the boss (if one's alive) by this much -- this is the only
     // source of boss damage now, skill activation no longer touches it.
@@ -65,9 +75,15 @@ public class BrickManager : MonoBehaviour
     public List<BrickController> GetAllBricks() => new List<BrickController>(_bricks.Values);
 
     // One-shot flag consumed by the very next DescendBricks call -- set by the "bricks don't
-    // descend this wave" Consumable effect.
+    // descend this wave" Consumable effect. Refreshes danger immediately since using it means
+    // nothing is actually going to reach the bottom this wave.
     private bool _skipNextDescend;
-    public void SkipNextDescend() => _skipNextDescend = true;
+
+    public void SkipNextDescend()
+    {
+        _skipNextDescend = true;
+        RefreshDangerState();
+    }
 
     private void Start()
     {
@@ -79,8 +95,11 @@ public class BrickManager : MonoBehaviour
         // the first wave itself. Nothing happens here until the player actually presses Start.
     }
 
-    // Resets per-shot PowerUp-effect state (not wave/game state) right as a new shot begins --
-    // every brick's own repeat-hit counter and the shot-wide destroyed-count both start at 0.
+    // Resets per-shot PowerUp-effect state (not wave/game state) right as a new shot begins.
+    // Only _bricksDestroyedThisShot still matters -- the ResetShotState loop is OBSOLETE, since
+    // the per-brick repeat-hit counter it clears is no longer read by anything (repeat-hit moved
+    // to per-(ball, brick) tracking on BallControllerV2). Kept in step with BrickController's own
+    // obsolete counter; both can be deleted together.
     private void HandleShotStarted()
     {
         _bricksDestroyedThisShot = 0;
@@ -168,15 +187,19 @@ public class BrickManager : MonoBehaviour
 
         GameManager.Instance.ResetWave();
         GameManager.Instance.ResetCoin();
+        GrantStartingCoinBonus();
         GameManager.Instance.ResetCoinShop();
         GameManager.Instance.ResetScore();
         GameManager.Instance.CoinManager.ResetCoins();
-        GameManager.Instance.SetPlayerChanceCount(StartingPlayerChanceCount);
+        // Always starts at full HP -- the ExtraChance meta-trait raises GetMaxHp(), so a
+        // purchased level directly grants more starting HP each run, not just a higher ceiling.
+        GameManager.Instance.SetPlayerChanceCount(GameManager.Instance.GetMaxHp());
         GameManager.Instance.ResetWavesSinceLastHpLoss();
         GameManager.Instance.SkillManager.ResetSkillPoint();
         GameManager.Instance.BossManager.ResetBoss();
         PowerUpManager.Instance.ResetPowerUps();
         ConsumableManager.Instance.ResetConsumables();
+        BallEnhanceManager.Instance.ResetEnhances();
         _isGameOver = false;
         _isBossEndingPhase = false;
         _pendingBossHits = 0;
@@ -189,7 +212,24 @@ public class BrickManager : MonoBehaviour
         GameManager.Instance.LaunchManager.ResetRoster();
 
         SpawnWaveBricks();
+        RefreshDangerState();
         GameManager.Instance.StateMachine.ChangeState(GameState.Aiming);
+    }
+
+    // Cheat/testing hook -- rebuilds the board at a given wave's difficulty without touching
+    // anything else (PowerUps, Consumables, enhances, balls, Coin), unlike RestartGame. Lets a
+    // test setup be assembled in any order without the wave jump wiping it.
+    public void CheatJumpToWave(int wave)
+    {
+        foreach (BrickController brick in _bricks.Values)
+        {
+            if (brick != null) Destroy(brick.gameObject);
+        }
+        _bricks.Clear();
+
+        GameManager.Instance.SetWave(wave);
+        SpawnWaveBricks();
+        RefreshDangerState();
     }
 
     private void HandleShotFinished()
@@ -239,12 +279,13 @@ public class BrickManager : MonoBehaviour
         GameManager.Instance.StateMachine.ChangeState(GameState.AdvanceWave);
         GameManager.Instance.AdvanceWave();
         GameManager.Instance.SoundManager.Play(SoundType.WaveClear);
-        DescendBricks();
+        yield return DescendBricksRoutine();
 
         if (_isGameOver) yield break; // GameOver() already set GameState.GameOver
 
         GameManager.Instance.StateMachine.ChangeState(GameState.SpawnWave);
         SpawnWaveBricks();
+        RefreshDangerState();
 
         GameManager.Instance.StateMachine.ChangeState(GameState.Aiming);
     }
@@ -255,7 +296,17 @@ public class BrickManager : MonoBehaviour
     public void CheatAttackBoss(int hitCount)
     {
         _pendingBossHits += hitCount;
-        StartCoroutine(CheckIfCanHitBoss());
+        StartCoroutine(CheatAttackBossRoutine());
+    }
+
+    // CheckIfCanHitBoss only returns to Aiming itself when called from the real shot-finished
+    // flow (HandleShotFinishedRoutine handles that afterward) -- called standalone like this, a
+    // phase kill would open the Shop, and closing it would leave the game stuck in GameState.Shop
+    // forever with no further transition to re-enable input.
+    private IEnumerator CheatAttackBossRoutine()
+    {
+        yield return CheckIfCanHitBoss();
+        GameManager.Instance.StateMachine.ChangeState(GameState.Aiming);
     }
 
     // Plays back however many hits queued up from bricks destroyed this shot, one at a time
@@ -331,7 +382,7 @@ public class BrickManager : MonoBehaviour
 
     // Every alive brick moves one row closer to the player. Rebuilds the lookup since the keys
     // (grid positions) are changing -- iterating and mutating the same dictionary isn't safe.
-    private void DescendBricks()
+    private IEnumerator DescendBricksRoutine()
     {
         // Skips the reach-bottom check too, not just the shift loop below -- with nothing moving
         // down, nothing can newly reach the bottom threshold this wave either, so this only ever
@@ -339,49 +390,12 @@ public class BrickManager : MonoBehaviour
         if (_skipNextDescend)
         {
             _skipNextDescend = false;
-            return;
+            yield break;
         }
 
-        if (WouldAnyBrickReachBottom())
-        {
-            // Thematically the boss's own attack landing -- fires regardless of whether the
-            // player actually has a chance left to survive it.
-            GameManager.Instance.BossManager.AttackPlayer();
-
-            float blockChance = PowerUpManager.Instance != null ? PowerUpManager.Instance.GetTotalBlockHpLossChance() : 0f;
-            bool blocked = blockChance > 0f && Random.value < blockChance;
-
-            if (blocked)
-            {
-                ClearBottomRows(3);
-            }
-            else
-            {
-                bool survived = GameManager.Instance.TakePlayerHit();
-
-                // Only on an actual loss -- a blocked hit above never reaches this, so it never
-                // grants this bonus either.
-                if (PowerUpManager.Instance != null)
-                {
-                    float bonusCharge = PowerUpManager.Instance.GetTotalBonusSkillChargeOnHpLoss();
-                    if (bonusCharge > 0f)
-                    {
-                        GameManager.Instance.SkillManager.AddSkillPoint(bonusCharge);
-                    }
-                }
-
-                if (survived)
-                {
-                    ClearBottomRows(3);
-                }
-                else
-                {
-                    GameOver();
-                    return;
-                }
-            }
-        }
-
+        // Shift FIRST, then react. The old order resolved the breach while the bricks were still
+        // one row up, so the player never actually saw anything reach the bottom -- they just
+        // vanished from where they already were.
         Dictionary<Vector2Int, BrickController> shifted = new Dictionary<Vector2Int, BrickController>();
 
         foreach (KeyValuePair<Vector2Int, BrickController> entry in _bricks)
@@ -399,22 +413,96 @@ public class BrickManager : MonoBehaviour
         {
             _bricks[entry.Key] = entry.Value;
         }
+
+        // Nothing landed on the bottom -- no attack and no delay, the wave just moved down.
+        if (!AnyBrickAtBottom()) yield break;
+
+        SpeedUpBottomRowAnimation();
+
+        // Thematically the boss's own attack landing -- fires regardless of whether the player
+        // actually has a chance left to survive it.
+        GameManager.Instance.BossManager.AttackPlayer();
+
+        // Beat with the bricks visibly sitting on the bottom before anything happens to them.
+        // Before the branch so it covers all three outcomes (blocked, survived, dead).
+        yield return new WaitForSeconds(BottomRowClearDelay);
+
+        float blockChance = PowerUpManager.Instance != null ? PowerUpManager.Instance.GetTotalBlockHpLossChance() : 0f;
+        bool blocked = blockChance > 0f && Random.value < blockChance;
+
+        if (blocked)
+        {
+            ClearBottomRows(3);
+            yield break;
+        }
+
+        bool survived = GameManager.Instance.TakePlayerHit();
+
+        // Only on an actual loss -- a blocked hit above never reaches this, so it never grants
+        // this bonus either.
+        if (PowerUpManager.Instance != null)
+        {
+            float bonusCharge = PowerUpManager.Instance.GetTotalBonusSkillChargeOnHpLoss();
+            if (bonusCharge > 0f)
+            {
+                GameManager.Instance.SkillManager.AddSkillPoint(bonusCharge);
+            }
+        }
+
+        if (survived)
+        {
+            ClearBottomRows(3);
+        }
+        else
+        {
+            GameOver();
+        }
     }
 
-    private bool WouldAnyBrickReachBottom()
+    // Flags every brick that will breach on the NEXT descend, so the warning is up while the
+    // player aims -- hence the predictive y - 1, unlike AnyBrickAtBottom which runs after the
+    // shift has already happened.
+    private void RefreshDangerState()
     {
         foreach (KeyValuePair<Vector2Int, BrickController> entry in _bricks)
         {
-            if (entry.Key.y - 1 <= BottomRow) return true;
+            if (entry.Value == null) continue;
+
+            bool inDanger = !_skipNextDescend && entry.Key.y - 1 <= BottomRow;
+            entry.Value.SetDanger(inDanger);
+        }
+    }
+
+    // Only the bricks that actually landed on the bottom -- the rows above keep the normal-speed
+    // danger loop (or none at all).
+    private void SpeedUpBottomRowAnimation()
+    {
+        foreach (KeyValuePair<Vector2Int, BrickController> entry in _bricks)
+        {
+            if (entry.Value == null) continue;
+            if (entry.Key.y > BottomRow) continue;
+
+            entry.Value.SetAnimatorSpeed(BottomRowDangerAnimationSpeed);
+        }
+    }
+
+    // Post-shift check -- bricks have already moved, so this tests where they ARE rather than
+    // where they're about to be.
+    private bool AnyBrickAtBottom()
+    {
+        foreach (KeyValuePair<Vector2Int, BrickController> entry in _bricks)
+        {
+            if (entry.Key.y <= BottomRow) return true;
         }
         return false;
     }
 
-    // Directly destroys every brick in the bottom rowCount rows using their current (pre-shift)
-    // positions -- no coin/score reward, since this is an emergency save, not a normal kill.
+    // Directly destroys every brick in the bottom rowCount rows -- no coin/score reward, since
+    // this is an emergency save, not a normal kill. Starts AT BottomRow (not one above it) since
+    // the shift has already run by the time this is called, so breaching bricks sit on it.
     private void ClearBottomRows(int rowCount)
     {
-        for (int i = 1; i <= rowCount; i++)
+        for (int i = 0; i < rowCount; i++)
         {
             int row = BottomRow + i;
             List<BrickController> bricks = GetBricksInRow(row);
@@ -498,8 +586,24 @@ public class BrickManager : MonoBehaviour
         new Vector2Int(-1, 1), new Vector2Int(-1, -1),
     };
 
-    public List<BrickController> GetSideNeighbors(BrickController brick) => GetNeighbors(brick.GridPosition, SideOffsets);
-    public List<BrickController> GetDiagonalNeighbors(BrickController brick) => GetNeighbors(brick.GridPosition, DiagonalOffsets);
+    private static readonly Vector2Int[] AllOffsets =
+    {
+        new Vector2Int(0, 1), new Vector2Int(0, -1),
+        new Vector2Int(-1, 0), new Vector2Int(1, 0),
+        new Vector2Int(1, 1), new Vector2Int(1, -1),
+        new Vector2Int(-1, 1), new Vector2Int(-1, -1),
+    };
+
+    // reach = how many steps to walk along each direction, not just the tile at exactly that
+    // distance -- e.g. reach 2 hits both the 1-tile and 2-tile bricks along each direction, for
+    // Ball Enhance's Range axis (Fire/Lightning). Defaults to 1 (immediate neighbors only) for
+    // every other caller.
+    public List<BrickController> GetSideNeighbors(BrickController brick, int reach = 1) => GetNeighborsInReach(brick.GridPosition, SideOffsets, reach);
+    public List<BrickController> GetDiagonalNeighbors(BrickController brick, int reach = 1) => GetNeighborsInReach(brick.GridPosition, DiagonalOffsets, reach);
+
+    // Side + diagonal combined, immediate neighbors only -- used by Bomb's Range axis to pick
+    // random neighboring bricks from, regardless of direction.
+    public List<BrickController> GetAllNeighbors(BrickController brick) => GetNeighborsInReach(brick.GridPosition, AllOffsets, 1);
 
     public List<BrickController> GetBricksInRow(int row)
     {
@@ -536,13 +640,18 @@ public class BrickManager : MonoBehaviour
         return GridToWorld(new Vector2Int(column, BottomRow));
     }
 
-    private List<BrickController> GetNeighbors(Vector2Int gridPosition, Vector2Int[] offsets)
+    private List<BrickController> GetNeighborsInReach(Vector2Int gridPosition, Vector2Int[] directions, int reach)
     {
         List<BrickController> neighbors = new List<BrickController>();
-        foreach (Vector2Int offset in offsets)
+        foreach (Vector2Int direction in directions)
         {
-            if (_bricks.TryGetValue(gridPosition + offset, out BrickController neighbor))
-                neighbors.Add(neighbor);
+            for (int step = 1; step <= reach; step++)
+            {
+                if (_bricks.TryGetValue(gridPosition + direction * step, out BrickController neighbor))
+                {
+                    neighbors.Add(neighbor);
+                }
+            }
         }
         return neighbors;
     }
@@ -574,7 +683,28 @@ public class BrickManager : MonoBehaviour
     private void GameOver()
     {
         _isGameOver = true;
+        AwardTokens();
         GameManager.Instance.StateMachine.ChangeState(GameState.GameOver);
         OnGameOver?.Invoke();
+    }
+
+    // Awarded before OnGameOver fires so the GameOver screen (and the Upgrade menu reached from
+    // it) already reflects the new token total.
+    private void AwardTokens()
+    {
+        if (TraitManager.Instance == null) return;
+
+        int tokens = Mathf.FloorToInt(GameManager.Instance.GetWave() * TokensPerWave);
+        if (tokens > 0) TraitManager.Instance.AddToken(tokens);
+    }
+
+    // Flat Coin the StartingCoinBonus meta-trait grants at the start of every run -- applied
+    // right after ResetCoin zeroes the previous run's balance.
+    private void GrantStartingCoinBonus()
+    {
+        if (TraitManager.Instance == null) return;
+
+        int bonus = Mathf.FloorToInt(TraitManager.Instance.GetTraitValue(TraitType.StartingCoinBonus));
+        if (bonus > 0) GameManager.Instance.AddCoin(bonus);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -51,9 +52,16 @@ public class BallControllerV2 : MonoBehaviour
     // Per-shot state for PowerUp effect context -- all reset in Shoot(), read by
     // BaseBallHitEffect via CurrentHitContext whenever this ball hits a brick.
     private int _bouncesThisShot;
+    private int _brickBouncesThisShot;
+    private int _wallBouncesThisShot;
     private bool _hasHitAnyBrickThisShot;
     private int _fireIndexThisShot;
     private bool _pendingSideWallBonus;
+
+    // Per (this ball, brick) hit count for the current shot -- feeds BallHitContext's
+    // RepeatHitsOnBrick. Kept here rather than on the brick so a repeat-hit bonus is only earned
+    // by the same ball actually coming back around to the same brick.
+    private readonly Dictionary<BrickController, int> _hitsPerBrickThisShot = new Dictionary<BrickController, int>();
 
     public BallHitContext CurrentHitContext { get; private set; }
 
@@ -87,9 +95,12 @@ public class BallControllerV2 : MonoBehaviour
         _rampTimer = 0f;
 
         _bouncesThisShot = 0;
+        _brickBouncesThisShot = 0;
+        _wallBouncesThisShot = 0;
         _hasHitAnyBrickThisShot = false;
         _fireIndexThisShot = fireIndexThisShot;
         _pendingSideWallBonus = false;
+        _hitsPerBrickThisShot.Clear();
     }
 
     public void Stop()
@@ -162,10 +173,18 @@ public class BallControllerV2 : MonoBehaviour
                 _direction = Reflect(_direction, normal);
                 _bouncesThisShot++;
 
+                // Bricks carry the Bouncy tag too, so this same block runs for them -- splitting
+                // here is what lets an effect ask for brick bounces or wall bounces specifically
+                // instead of the mixed total.
+                bool bouncedOffBrick = brickController != null;
+                if (bouncedOffBrick) _brickBouncesThisShot++;
+                else _wallBouncesThisShot++;
+
                 // Side wall = horizontal normal (left/right), as opposed to top/bottom. Sets a
                 // one-shot flag consumed by the next brick hit, not a running count -- a later
-                // side bounce before that hit just keeps it true, doesn't stack.
-                if (Mathf.Abs(normal.x) > Mathf.Abs(normal.y))
+                // side bounce before that hit just keeps it true, doesn't stack. Bricks are
+                // excluded: hitting one from the side isn't "bouncing off a side wall".
+                if (!bouncedOffBrick && Mathf.Abs(normal.x) > Mathf.Abs(normal.y))
                 {
                     _pendingSideWallBonus = true;
                 }
@@ -275,22 +294,30 @@ public class BallControllerV2 : MonoBehaviour
 
         BrickManager brickManager = GameManager.Instance.BrickManager;
 
+        // Read BEFORE the increment below -- RepeatHitsOnBrick means "times already hit before
+        // this one", so it's 0 on the first hit of a given brick.
+        _hitsPerBrickThisShot.TryGetValue(brickController, out int repeatHitsOnBrick);
+
         // Captured before flipping _hasHitAnyBrickThisShot -- HitWallBeforeAnyBrick and
         // IsFirstHitThisShot are only ever true on the first brick hit of the shot, never on
         // later hits.
         CurrentHitContext = new BallHitContext
         {
             BouncesThisShot = _bouncesThisShot,
+            BrickBouncesThisShot = _brickBouncesThisShot,
+            WallBouncesThisShot = _wallBouncesThisShot,
             FireIndexThisShot = _fireIndexThisShot,
             HitWallBeforeAnyBrick = _bouncesThisShot > 0 && !_hasHitAnyBrickThisShot,
             SideWallBounceSinceLastHit = _pendingSideWallBonus,
             IsFirstHitThisShot = !_hasHitAnyBrickThisShot,
             BricksRemainingOnField = brickManager != null ? brickManager.GetBrickCount() : 0,
             BricksDestroyedThisShot = brickManager != null ? brickManager.BricksDestroyedThisShot : 0,
+            RepeatHitsOnBrick = repeatHitsOnBrick,
             HitBrick = brickController,
         };
         _hasHitAnyBrickThisShot = true;
         _pendingSideWallBonus = false;
+        _hitsPerBrickThisShot[brickController] = repeatHitsOnBrick + 1;
 
         foreach (BaseBallHitEffect hitEffect in _hitEffects)
         {

@@ -7,4 +7,6 @@ public class SkillDamageMultiplierEffect : BasePowerUpEffect
     public float Multiplier = 2f;
 
     public override float GetSkillDamageMultiplier() => Multiplier;
+
+    public override string GetDescription() => $"Skill deals x{Multiplier} damage";
 }
