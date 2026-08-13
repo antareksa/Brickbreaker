@@ -36,7 +36,11 @@ public class CardOfferPanel : MonoBehaviour
         PowerUpIcon.sprite = powerUp.PowerUpImage;
         PowerUpNameText.text = powerUp.PowerUpName;
         DescriptionText.text = powerUp.GetDescription();
-        if (TypeText != null) TypeText.text = "PowerUp";
+        if (TypeText != null) 
+        { 
+            TypeText.text = "PowerUp";
+            TypeText.color = Color.blue;
+        }
         if (CostText != null) CostText.text = _cost.ToString();
 
         SelectButton.interactable = true;
@@ -53,7 +57,11 @@ public class CardOfferPanel : MonoBehaviour
         PowerUpIcon.sprite = consumable.ConsumableImage;
         PowerUpNameText.text = consumable.ConsumableName;
         DescriptionText.text = consumable.GetDescription();
-        if (TypeText != null) TypeText.text = "Consumable";
+        if (TypeText != null) 
+        { 
+            TypeText.text = "Consumable";
+            TypeText.color = Color.red;
+        }
         if (CostText != null) CostText.text = _cost.ToString();
 
         SelectButton.interactable = true;

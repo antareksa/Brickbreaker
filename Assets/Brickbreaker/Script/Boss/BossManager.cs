@@ -113,7 +113,13 @@ public class BossManager : MonoBehaviour
 
         CurrentPhaseHP -= amount;
         BossController.PlayHit();
+        BossController.PlayAttackedSFX();
         OnBossDamaged?.Invoke();
+    }
+
+    public void BossAttack()
+    {
+        BossController.PlayAttack();
     }
 
     // True once the current phase's HP has been brought to 0 by DamageBoss but the resulting

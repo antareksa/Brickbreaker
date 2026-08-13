@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework;
 using Spine.Unity;
 using UnityEngine;
 
@@ -18,7 +19,12 @@ public class BossController : MonoBehaviour
     [Header("Animation Names")]
     public string IdleAnimationName;
     public string HitAnimationName;
+    public string AttackAnimationName;
     public string DefeatAnimationName;
+
+    [Header("Audio")]
+    public AudioSource SFXSource;
+    public List<AudioClip> BossAttackedSFX;
 
     // Where boss-hit VFX should play (e.g. for brick-destroy attacks -- see
     // BrickManager.AttackPowerToBoss).
@@ -33,6 +39,12 @@ public class BossController : MonoBehaviour
     public FinalBossController FinalBossController;
 
     private int _currentIndexPhases;
+
+    private List<AudioClip> _bossAttackedPlaylistSFX;
+
+    private int _playlistIndex;
+
+    private BossAnimation _currentBossAnimation;
 
     private SkeletonAnimation CurrentSkeleton => Phases[_currentIndexPhases].GetComponent<SkeletonAnimation>();
 
@@ -58,23 +70,34 @@ public class BossController : MonoBehaviour
         Phases[phase].SetActive(true);
         _currentIndexPhases = phase;
 
+        _currentBossAnimation = Phases[_currentIndexPhases].GetComponent<BossAnimation>();
+
         PlayIdle();
     }
 
     public void PlayIdle()
     {
-        CurrentSkeleton.AnimationState.SetAnimation(0, IdleAnimationName, true);
+        if (_currentBossAnimation == null) return;
+        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.IdleAnimationName, true);
     }
 
     public void PlayHit()
     {
-        CurrentSkeleton.AnimationState.SetAnimation(0, HitAnimationName, false);
-        CurrentSkeleton.AnimationState.AddAnimation(0, IdleAnimationName, true, 0f);
+        if (_currentBossAnimation == null) return;
+        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.HitAnimationName, false);
+        CurrentSkeleton.AnimationState.AddAnimation(0, _currentBossAnimation.IdleAnimationName, true, 0f);
+    }
+
+    public void PlayAttack()
+    {
+        if (_currentBossAnimation == null) return;
+        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.AttackAnimationName, false);
+        CurrentSkeleton.AnimationState.AddAnimation(0, _currentBossAnimation.IdleAnimationName, true, 0f);
     }
 
     public void PlayDefeat()
     {
-        CurrentSkeleton.AnimationState.SetAnimation(0, DefeatAnimationName, false);
+        if (_currentBossAnimation != null) CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.DefeatAnimationName, false);
 
         if (FinalScene != null)
         {
@@ -87,5 +110,37 @@ public class BossController : MonoBehaviour
         {
             FinalBossController.StartFinalBoss();
         }
+    }
+
+    public void PlayAttackedSFX()
+    {
+        // If playlist is empty or exhausted, reshuffle
+        if (_bossAttackedPlaylistSFX == null || _bossAttackedPlaylistSFX.Count == 0
+            || _playlistIndex >= _bossAttackedPlaylistSFX.Count)
+        {
+            RandomizeAttackedSFX();
+        }
+
+        AudioClip clip = _bossAttackedPlaylistSFX[_playlistIndex];
+        _playlistIndex++;
+
+        if (clip != null)
+            SFXSource.PlayOneShot(clip);
+    }
+
+    private void RandomizeAttackedSFX()
+    {
+        // Copy the source list so we don't mutate the original
+        _bossAttackedPlaylistSFX = new List<AudioClip>(BossAttackedSFX);
+
+        // Fisher-Yates shuffle
+        for (int i = _bossAttackedPlaylistSFX.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (_bossAttackedPlaylistSFX[i], _bossAttackedPlaylistSFX[j]) =
+                (_bossAttackedPlaylistSFX[j], _bossAttackedPlaylistSFX[i]);
+        }
+
+        _playlistIndex = 0;
     }
 }

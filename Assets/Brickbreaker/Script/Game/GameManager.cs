@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         // Canvas UI does) would otherwise shrink to be unreadable. Passing Screen.fullScreen keeps
         // whichever window mode the player is already in.
         Screen.SetResolution(TargetWidth, TargetHeight, Screen.fullScreen);
+        Screen.fullScreen = true;
     }
 
     public int GetCoin() => _coin;

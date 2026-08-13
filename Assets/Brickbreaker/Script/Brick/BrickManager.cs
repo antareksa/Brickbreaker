@@ -19,6 +19,7 @@ public class BrickManager : MonoBehaviour
     public int SpawnRow = 6;
     public Vector2Int SpawnColumnRange = new Vector2Int(1, 6);
     public int BottomRow = 0;
+    public Transform BigBrickSpawnPosition;
 
     // Pause between bricks reaching the bottom (boss attack lands) and the bottom rows actually
     // being cleared -- without it they vanish the same frame, with no chance to read what hit you.
@@ -43,6 +44,7 @@ public class BrickManager : MonoBehaviour
     public float BossAttackDelay = 0.15f;
     public float PhaseChangeDelay = 0.5f;
     public float FinalPhaseBrickHpMultiplier = 5f;
+    public List<AudioClip> BossAttackedSFX;
 
     // Flat, same amount for every phase kill (including the Final Phase) -- no scaling by phase
     // or boss number, per the design doc's economy section.
@@ -127,9 +129,9 @@ public class BrickManager : MonoBehaviour
             (SpawnColumnRange.x + SpawnColumnRange.y) / 2,
             SpawnRow);
 
-        BrickController bigBrick = Instantiate(BigBrickPrefab, transform);
-        bigBrick.transform.position = GridToWorld(centerPosition);
-        bigBrick.Spawn(BrickConfig.GetBaseHP(GameManager.Instance.GetWave()), centerPosition);
+        BrickController bigBrick = Instantiate(BigBrickPrefab, BigBrickSpawnPosition); //Instantiate(BigBrickPrefab, transform);
+        bigBrick.transform.position = Vector3.zero; //BigBrickSpawnPosition.transform.position; //GridToWorld(centerPosition);
+        bigBrick.Spawn(BrickConfig.GetBaseHP(GameManager.Instance.GetWave()), Vector2Int.zero);
         bigBrick.OnDestroyed.AddListener(HandleBrickDestroyed);
 
         _bricks[centerPosition] = bigBrick;
@@ -152,8 +154,8 @@ public class BrickManager : MonoBehaviour
             (SpawnColumnRange.x + SpawnColumnRange.y) / 2,
             SpawnRow);
 
-        BrickController bigBrick = Instantiate(BigBrickPrefab, transform);
-        bigBrick.transform.position = GridToWorld(centerPosition);
+        BrickController bigBrick = Instantiate(BigBrickPrefab, BigBrickSpawnPosition);
+        bigBrick.transform.localPosition = Vector3.zero; //GridToWorld(centerPosition);
         // CurrentPhaseHP is already the formula-computed HP for this (final) phase --
         // AdvancePhaseIfComplete sets it right before calling this.
         bigBrick.Spawn(Mathf.RoundToInt(bossManager.CurrentPhaseHP * FinalPhaseBrickHpMultiplier), centerPosition);
@@ -346,38 +348,66 @@ public class BrickManager : MonoBehaviour
 
         if (bossManager == null) yield break;
 
-        for (int i = 0; i < hits; i++)
+        if (bossManager.IsDefeated || bossManager.IsTransitioning) yield break;
+
+        bossManager.DamageBoss(AttackPowerToBoss*hits);
+
+        Transform bossHitPoint = bossManager.BossController != null ? bossManager.BossController.BossHitPoint : null;
+        if (bossHitPoint != null)
         {
-            if (bossManager.IsDefeated || bossManager.IsTransitioning) yield break;
-
-            bossManager.DamageBoss(AttackPowerToBoss);
-
-            Transform bossHitPoint = bossManager.BossController != null ? bossManager.BossController.BossHitPoint : null;
-            if (bossHitPoint != null)
-            {
-                Vector3 randomOffset = (Vector3)(Random.insideUnitCircle * BossAttackVfxRadius);
-                VFXManager.Instance.PlayVFX(BossAttackVfx, bossHitPoint.position + randomOffset);
-            }
-
-            if (bossManager.IsPhaseComplete)
-            {
-                // The hit landed and the phase's HP is empty, but the spine/phase swap
-                // (AdvancePhaseIfComplete) is deliberately delayed so the hit reaction reads
-                // first, rather than snapping straight to the new phase/defeat visual.
-                yield return new WaitForSeconds(PhaseChangeDelay);
-
-                bossManager.AdvancePhaseIfComplete();
-
-                GameManager.Instance.AddCoinShop(CoinShopRewardPerPhaseKill);
-                GameManager.Instance.StateMachine.ChangeState(GameState.Shop);
-                ShopHUD.Open();
-                yield return new WaitUntil(() => !ShopHUD.IsOpen);
-
-                yield break;
-            }
-
-            yield return new WaitForSeconds(BossAttackDelay);
+            Vector3 randomOffset = (Vector3)(Random.insideUnitCircle * BossAttackVfxRadius);
+            VFXManager.Instance.PlayVFX(BossAttackVfx, bossHitPoint.position + randomOffset);
         }
+
+        if (bossManager.IsPhaseComplete)
+        {
+            // The hit landed and the phase's HP is empty, but the spine/phase swap
+            // (AdvancePhaseIfComplete) is deliberately delayed so the hit reaction reads
+            // first, rather than snapping straight to the new phase/defeat visual.
+            yield return new WaitForSeconds(PhaseChangeDelay);
+
+            bossManager.AdvancePhaseIfComplete();
+
+            GameManager.Instance.AddCoinShop(CoinShopRewardPerPhaseKill);
+            GameManager.Instance.StateMachine.ChangeState(GameState.Shop);
+            ShopHUD.Open();
+            yield return new WaitUntil(() => !ShopHUD.IsOpen);
+
+            yield break;
+        }
+
+        //for (int i = 0; i < hits; i++)
+        //{
+        //    if (bossManager.IsDefeated || bossManager.IsTransitioning) yield break;
+
+        //    bossManager.DamageBoss(AttackPowerToBoss);
+
+        //    Transform bossHitPoint = bossManager.BossController != null ? bossManager.BossController.BossHitPoint : null;
+        //    if (bossHitPoint != null)
+        //    {
+        //        Vector3 randomOffset = (Vector3)(Random.insideUnitCircle * BossAttackVfxRadius);
+        //        VFXManager.Instance.PlayVFX(BossAttackVfx, bossHitPoint.position + randomOffset);
+        //    }
+
+        //    if (bossManager.IsPhaseComplete)
+        //    {
+        //        // The hit landed and the phase's HP is empty, but the spine/phase swap
+        //        // (AdvancePhaseIfComplete) is deliberately delayed so the hit reaction reads
+        //        // first, rather than snapping straight to the new phase/defeat visual.
+        //        yield return new WaitForSeconds(PhaseChangeDelay);
+
+        //        bossManager.AdvancePhaseIfComplete();
+
+        //        GameManager.Instance.AddCoinShop(CoinShopRewardPerPhaseKill);
+        //        GameManager.Instance.StateMachine.ChangeState(GameState.Shop);
+        //        ShopHUD.Open();
+        //        yield return new WaitUntil(() => !ShopHUD.IsOpen);
+
+        //        yield break;
+        //    }
+
+        //    yield return new WaitForSeconds(BossAttackDelay);
+        //}
     }
 
     // Every alive brick moves one row closer to the player. Rebuilds the lookup since the keys
@@ -437,6 +467,8 @@ public class BrickManager : MonoBehaviour
         }
 
         bool survived = GameManager.Instance.TakePlayerHit();
+
+        GameManager.Instance.BossManager.BossAttack();
 
         // Only on an actual loss -- a blocked hit above never reaches this, so it never grants
         // this bonus either.

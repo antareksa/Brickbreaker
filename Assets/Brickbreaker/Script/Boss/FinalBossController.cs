@@ -11,6 +11,7 @@ public class FinalBossController : MonoBehaviour
     public List<FinalBossSceneAnimationPlaylist> Animations;
     public float MaxProgress;
     public float MinProgressToTriggerFinalShot;
+    public bool AutoTriggerFinalShot;
     
     [Header("UI")]
     public Slider MaxProgressSlider;
@@ -48,7 +49,7 @@ public class FinalBossController : MonoBehaviour
             MaxProgressSlider.value = _currentProgress;
             if(_currentProgress > MaxProgress)
             {
-                StartFinalShot();
+                if(AutoTriggerFinalShot) StartFinalShot();
             }
         }
 
@@ -65,7 +66,7 @@ public class FinalBossController : MonoBehaviour
         }
 
         SkeletonGraphic.AnimationState.SetAnimation(0, _currentAnimations.LoopAnimation, true);
-        SetSpeed(1);
+        SetSpeed(0.5f);
 
         _currentProgress = 0;
         _isPlaying = true;
