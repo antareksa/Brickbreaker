@@ -23,6 +23,11 @@ public class FinalBossController : MonoBehaviour
     public Button EndButton;
     public Transform BottomButtonContainer;
 
+    [Header("Audio")]
+    public AudioSource FinalBossAudioSource;
+    public List<AudioClip> LoopAudioClips;
+    public List<AudioClip> FinalShotAudioClips;
+
     private FinalBossSceneAnimationPlaylist _currentAnimations;
     private float _currentSpeed;
     private float _currentProgress;
@@ -73,6 +78,10 @@ public class FinalBossController : MonoBehaviour
         MaxProgressSlider.maxValue = MaxProgress;
 
         BottomButtonContainer.gameObject.SetActive(false);
+
+        FinalBossAudioSource.clip = LoopAudioClips[UnityEngine.Random.Range(0, LoopAudioClips.Count)];
+        FinalBossAudioSource.loop = true;
+        FinalBossAudioSource.Play();
     }
 
     public void RestartFinalBoss()
@@ -91,6 +100,10 @@ public class FinalBossController : MonoBehaviour
         MaxProgressSlider.maxValue = MaxProgress;
 
         BottomButtonContainer.gameObject.SetActive(false);
+
+        FinalBossAudioSource.clip = LoopAudioClips[UnityEngine.Random.Range(0, LoopAudioClips.Count)];
+        FinalBossAudioSource.loop = true;
+        FinalBossAudioSource.Play();
     }
 
     public void SetSpeed(float speed)
@@ -111,6 +124,11 @@ public class FinalBossController : MonoBehaviour
     {
         _isPlaying = false;
         TrackEntry finalShotEntry = SkeletonGraphic.AnimationState.SetAnimation(0, _currentAnimations.FinalShotAnimation, false);
+
+        FinalBossAudioSource.clip = FinalShotAudioClips[UnityEngine.Random.Range(0, FinalShotAudioClips.Count)];
+        FinalBossAudioSource.loop = false;
+        FinalBossAudioSource.Play();
+
         finalShotEntry.Complete += HandleFinalShotComplete;
     }
 

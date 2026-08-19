@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 // One offered PowerUp or Consumable in the Shop's card-offer section (top area in the reference)
 // -- selectable, unlike PowerUpPanel/ConsumablePanel which are read-only/use-only display for
 // already-owned items. Both share this same slot/prefab since they compete in the same offer pool
 // (see ShopHUD.GenerateCardOffers) -- only one of PowerUp/Consumable is ever set at a time.
-public class CardOfferPanel : MonoBehaviour
+public class CardOfferPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Image PowerUpIcon;
     public TMP_Text PowerUpNameText;
@@ -20,11 +22,26 @@ public class CardOfferPanel : MonoBehaviour
     public Button SelectButton;
     public TMP_Text SelectButtonText;
 
+    public GameObject RedLabel;
+    public GameObject BlueLabel;
+
+    public float HoverScale = 1.1f;
+
+    public UnityEvent OnHoverEnter;
+    public UnityEvent OnHoverExit;
+
     public BasePowerUp PowerUp { get; private set; }
     public BaseConsumable Consumable { get; private set; }
     public bool IsSold { get; private set; }
 
     private int _cost;
+
+    private Vector3 originalScale;
+
+    private void Awake()
+    {
+        originalScale = transform.localScale;
+    }
 
     public void SetInfo(BasePowerUp powerUp)
     {
@@ -39,7 +56,8 @@ public class CardOfferPanel : MonoBehaviour
         if (TypeText != null) 
         { 
             TypeText.text = "PowerUp";
-            TypeText.color = Color.blue;
+            RedLabel.SetActive(false);
+            BlueLabel.SetActive(true);
         }
         if (CostText != null) CostText.text = _cost.ToString();
 
@@ -60,7 +78,8 @@ public class CardOfferPanel : MonoBehaviour
         if (TypeText != null) 
         { 
             TypeText.text = "Consumable";
-            TypeText.color = Color.red;
+            RedLabel.SetActive(true);
+            BlueLabel.SetActive(false);
         }
         if (CostText != null) CostText.text = _cost.ToString();
 
@@ -83,5 +102,17 @@ public class CardOfferPanel : MonoBehaviour
     {
         if (IsSold) return;
         SelectButton.interactable = currentCoinShop >= _cost;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        transform.localScale = originalScale * HoverScale;
+        OnHoverEnter?.Invoke();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        transform.localScale = originalScale;
+        OnHoverExit?.Invoke();
     }
 }
