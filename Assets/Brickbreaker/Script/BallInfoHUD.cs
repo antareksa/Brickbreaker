@@ -48,5 +48,9 @@ public class BallInfoHUD : BaseHUD
             Panels[i].gameObject.SetActive(true);
             Panels[i].SetInfo(prefab.BallIcon, prefab.BallName, count);
         }
+
+        BallControllerV2 lastBall = gachaEntries[0];
+        countByName.TryGetValue(lastBall.BallName, out int lastBallCount);
+        this.transform.GetChild(this.transform.childCount - 1).GetComponent<BallInfoPanel>().SetInfo(lastBall.BallIcon, lastBall.BallName, lastBallCount);
     }
 }

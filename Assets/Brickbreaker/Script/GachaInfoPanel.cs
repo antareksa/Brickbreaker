@@ -7,15 +7,17 @@ public class GachaInfoPanel : MonoBehaviour
     public Image BallIcon;
     public TMP_Text BallNameText;
     public Animator Animator;
+    public GameObject NewIndicator;
 
     // Set true once the reveal animation completes (or is skipped). The reveal clip should call
     // OnRevealAnimationFinished via an Animation Event at the point it's considered "done".
     public bool IsRevealFinished { get; private set; } = true;
 
-    public void SetInfo(Sprite icon, string ballName)
+    public void SetInfo(Sprite icon, string ballName, bool isNew = false)
     {
         BallIcon.sprite = icon;
         BallNameText.text = ballName;
+        NewIndicator.gameObject.SetActive(isNew);
     }
 
     public void PlayReveal()

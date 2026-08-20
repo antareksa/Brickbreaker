@@ -20,21 +20,29 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 549192722630988825, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1038365094066889817, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: m_Name
       value: FireBall
       objectReference: {fileID: 0}
-    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
-      propertyPath: BallIcon
+    - target: {fileID: 1984635644611712093, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bc1ef63aa206f2448874cc5da5348537, type: 3}
-    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
-      propertyPath: BallName
-      value: Fire Ball
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3650932223900812437, guid: 59638491115a10c409c7a8d70ce487de, type: 3}
     - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: Rarity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: BallIcon
+      value: 
+      objectReference: {fileID: 3650932223900812437, guid: 59638491115a10c409c7a8d70ce487de, type: 3}
+    - target: {fileID: 3304099385278482454, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: BallName
+      value: Fire Ball
       objectReference: {fileID: 0}
     - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,6 +83,22 @@ PrefabInstance:
     - target: {fileID: 4991609386195224844, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050076875130721759, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.455059
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050076875130721759, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.455059
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050076875130721759, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.455059
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050076875130721759, guid: 98d24310676d0d04cb8e21b2aaca87c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.035
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
