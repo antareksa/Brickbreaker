@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class PlayerUniqueSkillHUD : BaseHUD
 {
     public Slider SkillPointBar;
+    public Image SkillIconImage;
+    public Image SkillPopUpIconImage;
     public TMP_Text LevelSkillText;
     public TMP_Text SkillBarValueText;
 
@@ -32,7 +34,9 @@ public class PlayerUniqueSkillHUD : BaseHUD
     private void RefreshSkillLevelDisplay()
     {
         SkillPointBar.maxValue = GameManager.Instance.SkillManager.GetSkillPointNeeded();
-        LevelSkillText.text = "Lvl." + GameManager.Instance.SkillManager.ActiveSkill.CurrentLevel;
+        LevelSkillText.text = "Lvl." + GameManager.Instance.SkillManager.GetSkillLevel();
+        SkillIconImage.sprite = GameManager.Instance.SkillManager.GetSkillIcon();
+        SkillPopUpIconImage.sprite = GameManager.Instance.SkillManager.GetSkillIcon();
     }
 
     private void HandleSkillPointChanged(float skillPoint)

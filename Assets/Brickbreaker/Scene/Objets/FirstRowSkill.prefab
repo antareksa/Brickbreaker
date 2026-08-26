@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701714468952276914}
-  - component: {fileID: 5036843811504753446}
+  - component: {fileID: 7430360632611533450}
   m_Layer: 0
-  m_Name: LastRowSkill
+  m_Name: FirstRowSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5036843811504753446
+--- !u!114 &7430360632611533450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7248495419105572574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2fb041738e32b4287bffe1749f89ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 602a8b02f0a0b93469e7f88d158740f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: Last Row Skill
-  Description: Hit last all brick on last 3 row
+  SkillIcon: {fileID: -1051038800612421068, guid: 7ca0cbc5fdd496a4180fae5997bca22c, type: 3}
+  SkillName: First Row Skill
+  Description: Hit last all brick on first 3 row
   PercentPerHitByLevel:
     serializedVersion: 2
     m_Curve:
@@ -98,6 +99,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   BaseDamage: 5
-  SkillIcon: {fileID: 4823702883583363781, guid: fac8a6677b0cfcb41aa1098be61beb96, type: 3}
   RowCount: 3
   RowVfx: {fileID: 3369521249244020034, guid: 8f3ac0230aca7af4c88d309ec05b56dd, type: 3}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,20 @@ public class MainMenuHUD : BaseHUD
     public Button UpgradeButton;
     public UpgradeHUD UpgradeHUD;
 
+    [Header("SkillPopUp")]
+    public GameObject SkillChoicePopUp;
+    public SkillChoiceButton SkillChoiceButtonPrefab;
+    public Transform SkillChoiceButtonContainer;
+    public ToggleGroup SkillChoiceGroup;
+
     protected override void Start()
     {
         base.Start();
 
         StartButton.onClick.AddListener(HandleStartClicked);
         UpgradeButton.onClick.AddListener(HandleUpgradeClicked);
+
+        InitSkillChoice();
 
         Open();
     }
@@ -30,6 +39,12 @@ public class MainMenuHUD : BaseHUD
 
     private void HandleStartClicked()
     {
+        SkillChoicePopUp.SetActive(true);
+    }
+
+    public void HandleStartGame()
+    {
+        SkillChoicePopUp.SetActive(false);
         Close();
         GameManager.Instance.BrickManager.RestartGame();
     }
@@ -37,5 +52,23 @@ public class MainMenuHUD : BaseHUD
     private void HandleUpgradeClicked()
     {
         UpgradeHUD.Open();
+    }
+
+    private void InitSkillChoice()
+    {
+        SkillChoicePopUp.SetActive(false);
+
+        List<BaseSkillEffect> ListSkill = GameManager.Instance.SkillManager.ListSkillChoice;
+        int SkillIndex = GameManager.Instance.SkillManager.GetSkillIndex();
+
+        int index = 0;
+        foreach (BaseSkillEffect effect in ListSkill)
+        {
+            SkillChoiceButton skillChoiceButton = Instantiate(SkillChoiceButtonPrefab, SkillChoiceButtonContainer);
+            skillChoiceButton.UpdateChoiceData(effect, SkillChoiceGroup, index);
+            if (index == SkillIndex) skillChoiceButton.Pick();
+
+            index++;
+        }
     }
 }

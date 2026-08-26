@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class RandomColumnsSkillEffect : BaseSkillEffect
 {
     private static readonly int[] EvenColumns = { 2, 4, 6 };
     private static readonly int[] OddColumns = { 1, 3, 5 };
+
+    public GameObject Vfx;
 
     public override void Activate()
     {
@@ -15,6 +18,8 @@ public class RandomColumnsSkillEffect : BaseSkillEffect
         foreach (int column in columns)
         {
             List<BrickController> bricks = brickManager.GetBricksInColumn(column);
+
+            PlayVfx(Vfx, brickManager.GetColumnBottomWorldPosition(column));
 
             foreach (BrickController brick in bricks)
             {

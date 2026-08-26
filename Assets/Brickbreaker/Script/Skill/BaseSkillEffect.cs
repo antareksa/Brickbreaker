@@ -5,6 +5,7 @@ using UnityEngine;
 // Not wired to anything yet -- this is scaffolding for the skill-selection system to come later.
 public abstract class BaseSkillEffect : MonoBehaviour
 {
+    public Sprite SkillIcon;
     public string SkillName;
     [TextArea] public string Description;
 
