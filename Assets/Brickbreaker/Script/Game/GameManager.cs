@@ -189,6 +189,15 @@ public class GameManager : MonoBehaviour
         OnPlayerChanceCountChanged?.Invoke(_playerChanceCount);
     }
 
+    // Re-fires OnPlayerChanceCountChanged with the current count unchanged -- just forces
+    // listeners (like HealthHUD) to re-read GetMaxHp() immediately. Needed because GetMaxHp()
+    // can change mid-session (buying/resetting the ExtraChance trait) without any actual HP loss
+    // or gain to naturally trigger a refresh.
+    public void RefreshMaxHp()
+    {
+        OnPlayerChanceCountChanged?.Invoke(_playerChanceCount);
+    }
+
     // HP-style: always takes the hit (decrements), then reports whether the player is still
     // alive afterward. The hit that brings it to 0 is a death blow on that same hit, not a save
     // that only fails next time.

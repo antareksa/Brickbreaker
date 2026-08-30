@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -117,9 +118,9 @@ public class BossManager : MonoBehaviour
         OnBossDamaged?.Invoke();
     }
 
-    public void BossAttack()
+    public IEnumerator BossAttack()
     {
-        BossController.PlayAttack();
+        yield return BossController.PlayAttack();
     }
 
     // True once the current phase's HP has been brought to 0 by DamageBoss but the resulting

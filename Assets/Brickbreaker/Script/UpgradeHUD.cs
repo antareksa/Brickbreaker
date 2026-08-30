@@ -63,12 +63,14 @@ public class UpgradeHUD : BaseHUD
     {
         TraitType type = TraitManager.Instance.Traits[rowIndex].Type;
         TraitManager.Instance.UpgradeTrait(type);
+        GameManager.Instance.RefreshMaxHp();
         RefreshAll();
     }
 
     private void HandleResetClicked()
     {
         TraitManager.Instance.ResetAllTraits();
+        GameManager.Instance.RefreshMaxHp();
         RefreshAll();
     }
 

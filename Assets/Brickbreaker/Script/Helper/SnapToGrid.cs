@@ -12,6 +12,11 @@ public class SnapToGrid : MonoBehaviour
 
     private void Update()
     {
+        // Editor placement helper only -- at runtime this fights any script animating a child's
+        // position (e.g. BrickController.MoveTo easing bricks down each wave), snapping it back
+        // to the nearest cell every frame before the animation ever gets to play.
+        if (Application.isPlaying) return;
+
         if (grid == null) grid = GetComponent<Grid>();
         if (grid == null) return;
 

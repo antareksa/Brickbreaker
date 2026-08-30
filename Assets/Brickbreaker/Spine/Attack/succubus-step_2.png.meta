@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: b7b2a699e3869c1448b1fed5071a12f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7389595610888273320
+    second: succubus-step_2_0
+  - first:
+      213: -1287030668146749195
+    second: succubus-step_2_1
+  - first:
+      213: -513928370837123937
+    second: succubus-step_2_2
+  - first:
+      213: -860826890096665662
+    second: succubus-step_2_3
+  - first:
+      213: 2687376997168825268
+    second: succubus-step_2_4
+  - first:
+      213: -1827746236673126639
+    second: succubus-step_2_5
+  - first:
+      213: -7973879306499270994
+    second: succubus-step_2_6
+  - first:
+      213: -5073286408739734194
+    second: succubus-step_2_7
+  - first:
+      213: -8835005292966294354
+    second: succubus-step_2_8
+  - first:
+      213: 8407840538288909456
+    second: succubus-step_2_9
+  - first:
+      213: -5825025799263717404
+    second: succubus-step_2_10
+  - first:
+      213: 4378116974549312360
+    second: succubus-step_2_11
+  - first:
+      213: 23315515963475885
+    second: succubus-step_2_12
+  - first:
+      213: -5475499272473730190
+    second: succubus-step_2_13
+  - first:
+      213: 7557788682931505377
+    second: succubus-step_2_14
+  - first:
+      213: 1295087432260912301
+    second: succubus-step_2_15
+  - first:
+      213: 1443589872306357172
+    second: succubus-step_2_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: succubus-step_2_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1745
+        width: 395
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8adf7cc6e0e1d8660800000000000000
+      internalID: 7389595610888273320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1544
+        width: 396
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f054122d6c832ee0800000000000000
+      internalID: -1287030668146749195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1190
+        width: 420
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c0240aed82ed8f0800000000000000
+      internalID: -513928370837123937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_3
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 1124
+        width: 391
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb1faa118abd04f0800000000000000
+      internalID: -860826890096665662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_4
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1394
+        width: 110
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3cdcdf32b7b4520800000000000000
+      internalID: 2687376997168825268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 29
+        width: 377
+        height: 1160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11f8a874b7a82a6e0800000000000000
+      internalID: -1827746236673126639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_6
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1125
+        width: 148
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea6d546a407175190800000000000000
+      internalID: -7973879306499270994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_7
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 631
+        width: 610
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d304304e01899b0800000000000000
+      internalID: -5073286408739734194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_8
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 958
+        width: 242
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac4c04fe71c36580800000000000000
+      internalID: -8835005292966294354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_9
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 670
+        width: 363
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ce6d44c66aea470800000000000000
+      internalID: 8407840538288909456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_10
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 670
+        width: 192
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7766bd5e9592fa0800000000000000
+      internalID: -5825025799263717404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_11
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 631
+        width: 262
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863ae1d213232cc30800000000000000
+      internalID: 4378116974549312360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_12
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 29
+        width: 653
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da702c69655d25000800000000000000
+      internalID: 23315515963475885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_13
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 29
+        width: 880
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2732b401c6e1304b0800000000000000
+      internalID: -5475499272473730190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_14
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 289
+        width: 106
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e88995a3c8a2e860800000000000000
+      internalID: 7557788682931505377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_15
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 163
+        width: 122
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da40cf0782319f110800000000000000
+      internalID: 1295087432260912301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: succubus-step_2_16
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 28
+        width: 116
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b30c242759a80410800000000000000
+      internalID: 1443589872306357172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      succubus-step_2_0: 7389595610888273320
+      succubus-step_2_1: -1287030668146749195
+      succubus-step_2_10: -5825025799263717404
+      succubus-step_2_11: 4378116974549312360
+      succubus-step_2_12: 23315515963475885
+      succubus-step_2_13: -5475499272473730190
+      succubus-step_2_14: 7557788682931505377
+      succubus-step_2_15: 1295087432260912301
+      succubus-step_2_16: 1443589872306357172
+      succubus-step_2_2: -513928370837123937
+      succubus-step_2_3: -860826890096665662
+      succubus-step_2_4: 2687376997168825268
+      succubus-step_2_5: -1827746236673126639
+      succubus-step_2_6: -7973879306499270994
+      succubus-step_2_7: -5073286408739734194
+      succubus-step_2_8: -8835005292966294354
+      succubus-step_2_9: 8407840538288909456
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

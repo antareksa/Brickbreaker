@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Spine.Unity;
@@ -10,17 +11,23 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     public List<GameObject> Phases;
+    public GameObject AttackingPhase;
+    public string AttackingAnim;
+
+    // Named Spine event authored on AttackingAnim's timeline -- shake fires when playback
+    // actually crosses this keyframe, not when the animation starts, so it lines up with the
+    // attack's real impact instead of an estimated delay.
+    [Header("Attack Shake")]
+    public string AttackShakeEventName = "breath_1";
+    public float AttackShakeDuration = 0.25f;
+    public float AttackShakeMagnitude = 0.15f;
+
+    private bool _attackShakeEventSubscribed;
 
     // HP = BasePhaseHP[phaseIndex] x bossScalar(bossNumber) x GlobalDifficultyMultiplier (see
     // BossManager.GetPhaseHP). Indexed by phase, so each phase can have its own HP shape instead
     // of one flat value for the whole boss.
     public List<float> BasePhaseHP;
-
-    [Header("Animation Names")]
-    public string IdleAnimationName;
-    public string HitAnimationName;
-    public string AttackAnimationName;
-    public string DefeatAnimationName;
 
     [Header("Audio")]
     public AudioSource SFXSource;
@@ -47,6 +54,7 @@ public class BossController : MonoBehaviour
     private BossAnimation _currentBossAnimation;
 
     private SkeletonAnimation CurrentSkeleton => Phases[_currentIndexPhases].GetComponent<SkeletonAnimation>();
+    private SkeletonAnimation AttackingSkeleton => AttackingPhase.GetComponent<SkeletonAnimation>();
 
     private void Start()
     {
@@ -88,11 +96,45 @@ public class BossController : MonoBehaviour
         CurrentSkeleton.AnimationState.AddAnimation(0, _currentBossAnimation.IdleAnimationName, true, 0f);
     }
 
-    public void PlayAttack()
+    // Returns the routine itself (rather than firing-and-forgetting via StartCoroutine) so
+    // callers can yield on it -- e.g. BrickManager waits for the attack to actually land before
+    // applying the player's HP loss, instead of both happening the same frame.
+    public IEnumerator PlayAttack()
     {
-        if (_currentBossAnimation == null) return;
-        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.AttackAnimationName, false);
-        CurrentSkeleton.AnimationState.AddAnimation(0, _currentBossAnimation.IdleAnimationName, true, 0f);
+        if (_currentBossAnimation == null) yield break;
+        if (string.IsNullOrEmpty(AttackingAnim) || AttackingPhase == null) yield break;
+
+        Phases[_currentIndexPhases].SetActive(false);
+        AttackingPhase.SetActive(true);
+
+        // SkeletonAnimation only finishes initializing (AnimationState becomes usable) once its
+        // GameObject has actually been active -- subscribe here, after SetActive(true), rather
+        // than in Start(), and only once since AttackingSkeleton is the same instance every call.
+        if (!_attackShakeEventSubscribed)
+        {
+            AttackingSkeleton.AnimationState.Event += HandleAttackAnimationEvent;
+            _attackShakeEventSubscribed = true;
+        }
+
+        AttackingSkeleton.AnimationState.SetAnimation(0, AttackingAnim, false);
+
+        // Wait for the actual attack animation length instead of swapping back the same frame --
+        // reads straight off the Spine data so it stays in sync if AttackingAnim's clip changes.
+        Spine.Animation animation = AttackingSkeleton.Skeleton.Data.FindAnimation(AttackingAnim);
+        float duration = animation != null ? animation.Duration : 0f;
+        yield return new WaitForSeconds(duration);
+
+        Phases[_currentIndexPhases].SetActive(true);
+        AttackingPhase.SetActive(false);
+        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.IdleAnimationName, false);
+    }
+
+    private void HandleAttackAnimationEvent(Spine.TrackEntry trackEntry, Spine.Event e)
+    {
+        if (e.Data.Name != AttackShakeEventName) return;
+        if (CameraShake.Instance == null) return;
+
+        CameraShake.Instance.Shake(AttackShakeDuration, AttackShakeMagnitude);
     }
 
     public void PlayDefeat()

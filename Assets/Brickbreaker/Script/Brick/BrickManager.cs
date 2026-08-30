@@ -26,6 +26,9 @@ public class BrickManager : MonoBehaviour
     [Header("Descend")]
     public float BottomRowClearDelay = 0.5f;
 
+    // How long each brick takes to ease into its new row instead of snapping there instantly.
+    public float DescendMoveDuration = 0.25f;
+
     // Animator speed multiplier for bricks that actually landed on the bottom, applied for the
     // BottomRowClearDelay beat before they're cleared.
     public float BottomRowDangerAnimationSpeed = 2f;
@@ -434,7 +437,7 @@ public class BrickManager : MonoBehaviour
             Vector2Int newPosition = new Vector2Int(entry.Key.x, entry.Key.y - 1);
 
             brick.SetGridPosition(newPosition);
-            brick.transform.position = GridToWorld(newPosition);
+            brick.MoveTo(GridToWorld(newPosition), DescendMoveDuration);
             shifted[newPosition] = brick;
         }
 
@@ -443,6 +446,11 @@ public class BrickManager : MonoBehaviour
         {
             _bricks[entry.Key] = entry.Value;
         }
+
+        // Let the ease finish before anything reacts to bricks being at the bottom -- grid
+        // position (and therefore all the logic below) updates immediately above, but the visual
+        // move is what the player should see land first.
+        yield return new WaitForSeconds(DescendMoveDuration);
 
         // Nothing landed on the bottom -- no attack and no delay, the wave just moved down.
         if (!AnyBrickAtBottom()) yield break;
@@ -466,9 +474,11 @@ public class BrickManager : MonoBehaviour
             yield break;
         }
 
-        bool survived = GameManager.Instance.TakePlayerHit();
+        // Play the boss's attack landing and wait for it to actually finish before applying the
+        // HP loss, so the hit reads as caused by the attack instead of both happening at once.
+        yield return GameManager.Instance.BossManager.BossAttack();
 
-        GameManager.Instance.BossManager.BossAttack();
+        bool survived = GameManager.Instance.TakePlayerHit();
 
         // Only on an actual loss -- a blocked hit above never reaches this, so it never grants
         // this bonus either.

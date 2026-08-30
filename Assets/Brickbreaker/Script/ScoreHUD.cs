@@ -27,17 +27,28 @@ public class ScoreHUD : BaseHUD
         // Read live off the state machine (not BaseHUD's own CurrentState mirror) -- that mirror
         // only updates on the NEXT state change after Start, so it'd be stale for this priming call.
         RefreshSkipShotButton(GameManager.Instance.StateMachine.CurrentState);
+        RefreshSkipWaveButton(GameManager.Instance.StateMachine.CurrentState);
     }
 
     // Only meaningful to skip while balls are actually in flight.
     protected override void OnEnterState(GameState state)
     {
         RefreshSkipShotButton(state);
+        RefreshSkipWaveButton(state);
     }
 
     private void RefreshSkipShotButton(GameState state)
     {
         SkipShotButton.interactable = state == GameState.Shooting;
+    }
+
+    // SkipWave is only meant for skipping BEFORE a shot happens (see LauncherControllerV2.SkipWave).
+    // Outside of Aiming -- e.g. during AdvanceWave's descend/bottom-row-clear delay -- clicking it
+    // would fire a second OnShotFinished while HandleShotFinishedRoutine is still mid-flight,
+    // shifting bricks down again before a pending bottom-row hit ever resolves.
+    private void RefreshSkipWaveButton(GameState state)
+    {
+        SkipWaveButton.interactable = state == GameState.Aiming;
     }
 
     private void HandleScoreChanged(int score)

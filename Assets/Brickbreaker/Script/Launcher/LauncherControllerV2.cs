@@ -90,7 +90,7 @@ public class LauncherControllerV2 : MonoBehaviour
             bool isAiming = GameManager.Instance.StateMachine.CurrentState == GameState.Aiming;
             _isPickingTarget = !overUI && withinZone && isAiming;
 
-            Debug.Log($"[Launcher] mouseDown overUI={overUI} withinZone={withinZone} isAiming={isAiming} -> isPickingTarget={_isPickingTarget}");
+            //Debug.Log($"[Launcher] mouseDown overUI={overUI} withinZone={withinZone} isAiming={isAiming} -> isPickingTarget={_isPickingTarget}");
         }
 
         if (_isPickingTarget && Input.GetMouseButton(0))
@@ -102,7 +102,7 @@ public class LauncherControllerV2 : MonoBehaviour
             float angle = Vector2.SignedAngle(Vector2.up, rawDirection);
             _isAimValid = angle >= -MaxAimAngle && angle <= MaxAimAngle;
 
-            Debug.Log($"[Launcher] aim angle = {angle:F1} degrees from straight up, valid={_isAimValid}");
+            //Debug.Log($"[Launcher] aim angle = {angle:F1} degrees from straight up, valid={_isAimValid}");
 
             // Out of range disables aiming entirely (no clamp-to-edge) -- direction/line just
             // freeze at the last valid value until the drag comes back within MaxAimAngle.
@@ -143,7 +143,7 @@ public class LauncherControllerV2 : MonoBehaviour
         bool withinZone = worldPos.x >= InputZoneMin.x && worldPos.x <= InputZoneMax.x
             && worldPos.y >= InputZoneMin.y && worldPos.y <= InputZoneMax.y;
 
-        Debug.Log($"[Launcher] worldPos={worldPos} zoneMin={InputZoneMin} zoneMax={InputZoneMax} withinZone={withinZone}");
+        //Debug.Log($"[Launcher] worldPos={worldPos} zoneMin={InputZoneMin} zoneMax={InputZoneMax} withinZone={withinZone}");
 
         return withinZone;
     }
