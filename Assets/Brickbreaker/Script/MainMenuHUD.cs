@@ -7,6 +7,7 @@ public class MainMenuHUD : BaseHUD
     public GameObject PopupRoot;
     public Button StartButton;
     public Button UpgradeButton;
+    public Button QuitButton;
     public UpgradeHUD UpgradeHUD;
 
     [Header("SkillPopUp")]
@@ -21,6 +22,7 @@ public class MainMenuHUD : BaseHUD
 
         StartButton.onClick.AddListener(HandleStartClicked);
         UpgradeButton.onClick.AddListener(HandleUpgradeClicked);
+        QuitButton.onClick.AddListener(() => Application.Quit());
 
         InitSkillChoice();
 

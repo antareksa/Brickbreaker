@@ -173,6 +173,7 @@ public class BrickManager : MonoBehaviour
     private void HandleFinalPhaseBrickDestroyed(BrickController brick, BossManager bossManager)
     {
         _bricks.Remove(brick.GridPosition);
+        GameManager.Instance.AddBrickDestroyed();
         GameManager.Instance.CoinManager.SpawnCoin(brick.transform.position, brick.IsGold);
 
         _finalPhaseBrickDestroyed = true;
@@ -195,6 +196,8 @@ public class BrickManager : MonoBehaviour
         GrantStartingCoinBonus();
         GameManager.Instance.ResetCoinShop();
         GameManager.Instance.ResetScore();
+        GameManager.Instance.ResetPlayDuration();
+        GameManager.Instance.ResetBricksDestroyed();
         GameManager.Instance.CoinManager.ResetCoins();
         // Always starts at full HP -- the ExtraChance meta-trait raises GetMaxHp(), so a
         // purchased level directly grants more starting HP each run, not just a higher ceiling.
@@ -702,6 +705,7 @@ public class BrickManager : MonoBehaviour
     {
         _bricks.Remove(brick.GridPosition);
         _bricksDestroyedThisShot++;
+        GameManager.Instance.AddBrickDestroyed();
 
         GameManager.Instance.CoinManager.SpawnCoin(brick.transform.position, brick.IsGold);
 

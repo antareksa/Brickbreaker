@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     private int _wave;
     private int _score;
     private int _playerChanceCount;
+    private float _runStartTime;
+    private int _totalBricksDestroyed;
 
     // Reset to 0 whenever TakePlayerHit is actually called (not when a PowerUp blocks the hit
     // entirely) -- lets a PowerUp award bonus HP for stringing together HP-loss-free waves.
@@ -170,6 +172,27 @@ public class GameManager : MonoBehaviour
         _score = 0;
         OnScoreChanged?.Invoke(_score);
     }
+
+    public void ResetPlayDuration()
+    {
+        _runStartTime = Time.time;
+    }
+
+    public int GetTotalBricksDestroyed() => _totalBricksDestroyed;
+
+    public void AddBrickDestroyed()
+    {
+        _totalBricksDestroyed++;
+    }
+
+    public void ResetBricksDestroyed()
+    {
+        _totalBricksDestroyed = 0;
+    }
+
+    // Live elapsed time since the current run started -- not frozen at GameOver, but nothing
+    // currently keeps ticking on the GameOver screen after it's read once, so that's fine.
+    public float GetPlayDuration() => Time.time - _runStartTime;
 
     public int GetPlayerChanceCount() => _playerChanceCount;
 

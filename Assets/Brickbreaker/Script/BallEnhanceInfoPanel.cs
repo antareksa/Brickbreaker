@@ -1,14 +1,29 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 // One owned Ball Enhance entry in the info popup -- read-only, unlike BallEnhancePanel (the
 // pickable version shown inside an opened pack). Shows the axis's ACTUAL current number, not
 // just what it governs, so the player can see what their purchased levels bought them.
-public class BallEnhanceInfoPanel : MonoBehaviour
+public class BallEnhanceInfoPanel : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
     public TMP_Text NameText;
     public TMP_Text DescriptionText;
     public TMP_Text LevelText;
+
+    public GameObject DescPanel;
+
+    public float HoverScale = 1.1f;
+    public UnityEvent OnHoverEnter;
+    public UnityEvent OnHoverExit;
+
+    private Vector3 originalScale;
+
+    private void Awake()
+    {
+        originalScale = transform.localScale;
+    }
 
     public void SetInfo(BallEnhanceType type, BallEnhanceAxis axis)
     {
@@ -39,5 +54,17 @@ public class BallEnhanceInfoPanel : MonoBehaviour
             default:
                 return string.Empty;
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //transform.localScale = originalScale * HoverScale;
+        OnHoverEnter?.Invoke();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        //transform.localScale = originalScale;
+        OnHoverExit?.Invoke();
     }
 }
