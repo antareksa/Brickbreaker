@@ -265,7 +265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -105.7}
+  m_AnchoredPosition: {x: 0, y: -157}
   m_SizeDelta: {x: 176.5, y: 42.5596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4087459264846520835
@@ -503,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7423883339143175763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0001296997, y: 11.341797}
-  m_SizeDelta: {x: -26.263, y: -103.3793}
+  m_AnchoredPosition: {x: 0.0001373291, y: -47.80541}
+  m_SizeDelta: {x: -26.263, y: -273.498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7190448994609166393
 CanvasRenderer:
@@ -597,8 +597,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.5005, y: -1.8}
-  m_SizeDelta: {x: 160.5169, y: 41.0146}
+  m_AnchoredPosition: {x: 0.5005, y: 0.79999924}
+  m_SizeDelta: {x: 282.1911, y: 47.9175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7972757303497133188
 CanvasRenderer:
@@ -884,7 +884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20.099998}
+  m_AnchoredPosition: {x: 0, y: -25.1}
   m_SizeDelta: {x: -30, y: 26.184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5419161888192065099
@@ -927,7 +927,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 202.7631, y: 271.2717}
+  m_SizeDelta: {x: 300, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8612897177882195796
 CanvasRenderer:
@@ -991,34 +991,10 @@ MonoBehaviour:
   HoverScale: 1.1
   OnHoverEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3752216848473567467}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   OnHoverExit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3752216848473567467}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6471693990143080837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5.6}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8498677926504334713
@@ -1478,7 +1454,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.2853, y: 3.6811}
-  m_SizeDelta: {x: 95.8279, y: 20.844}
+  m_SizeDelta: {x: 233.2748, y: 20.844}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3539358907499680505
 CanvasRenderer:
@@ -1508,7 +1484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NAMENAMENAMENAMENAMENAMENAMENAMENAME
+  m_text: NAMENAMEN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52b7b492e97c84348aae905993b3f116, type: 2}
   m_sharedMaterial: {fileID: 748630485194955447, guid: 52b7b492e97c84348aae905993b3f116, type: 2}
@@ -1535,7 +1511,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6
+  m_fontSize: 20.8
   m_fontSizeBase: 22.1
   m_fontWeight: 400
   m_enableAutoSizing: 1

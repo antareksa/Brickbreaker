@@ -96,6 +96,10 @@ public class BrickController : MonoBehaviour
         if (SpriteRenderer == null) return;
 
         SpriteRenderer.color = IsGold ? GoldColor : GetHpColor(_hitPoint);
+
+        if(IsGold) Debug.Log("GOLD GOLD GOLD " + gameObject.name);
+
+        Debug.Log("Color Brick = " + SpriteRenderer.color);
     }
 
     private static Color GetHpColor(int hitPoint)

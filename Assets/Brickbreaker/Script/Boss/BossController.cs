@@ -126,7 +126,7 @@ public class BossController : MonoBehaviour
 
         Phases[_currentIndexPhases].SetActive(true);
         AttackingPhase.SetActive(false);
-        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.IdleAnimationName, false);
+        CurrentSkeleton.AnimationState.SetAnimation(0, _currentBossAnimation.IdleAnimationName, true);
     }
 
     private void HandleAttackAnimationEvent(Spine.TrackEntry trackEntry, Spine.Event e)
