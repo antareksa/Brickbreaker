@@ -14,6 +14,11 @@ public class BallEnhanceRevealPopup : MonoBehaviour
     public Button CloseButton;
     public int MaxPicks = 2;
 
+    // Lets ShopHUD refresh its own owned-enhance list once picks made here are final -- picking
+    // doesn't spend Coin Shop (the pack already covered that), so there's no other change event
+    // for it to key off of.
+    public System.Action OnClosed;
+
     private readonly List<BallEnhancePanel> _panels = new List<BallEnhancePanel>();
     private int _picksMade;
 
@@ -67,5 +72,6 @@ public class BallEnhanceRevealPopup : MonoBehaviour
     public void Close()
     {
         PopupRoot.SetActive(false);
+        OnClosed?.Invoke();
     }
 }

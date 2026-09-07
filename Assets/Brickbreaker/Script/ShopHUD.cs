@@ -41,6 +41,21 @@ public class ShopHUD : BaseHUD
     [Header("Currency")]
     public TMP_Text CoinShopText;
 
+    // Read-only-ish lists of what the player already has, shown alongside the buy offers so they
+    // can see their current loadout without leaving the Shop -- same display each already gets
+    // from PowerUpHUD/ConsumableHUD/BallEnhanceInfoHUD, just a separate set of panels living here.
+    [Header("Owned Power Ups")]
+    public PowerUpPanel OwnedPowerUpPanelPrefab;
+    public Transform OwnedPowerUpPanelContainer;
+
+    [Header("Owned Consumables")]
+    public ConsumablePanel OwnedConsumablePanelPrefab;
+    public Transform OwnedConsumablePanelContainer;
+
+    [Header("Owned Ball Enhances")]
+    public BallEnhanceInfoPanel OwnedBallEnhancePanelPrefab;
+    public Transform OwnedBallEnhancePanelContainer;
+
     public bool IsOpen { get; private set; }
 
     // Lets other HUDs (e.g. PowerUpHUD's Sell button) react to the Shop opening/closing without
@@ -52,6 +67,9 @@ public class ShopHUD : BaseHUD
     private int _currentRerollCost;
 
     private readonly List<CardOfferPanel> _cardOfferPanels = new List<CardOfferPanel>();
+    private readonly List<PowerUpPanel> _ownedPowerUpPanels = new List<PowerUpPanel>();
+    private readonly List<ConsumablePanel> _ownedConsumablePanels = new List<ConsumablePanel>();
+    private readonly List<BallEnhanceInfoPanel> _ownedBallEnhancePanels = new List<BallEnhanceInfoPanel>();
 
     protected override void Start()
     {
@@ -60,6 +78,13 @@ public class ShopHUD : BaseHUD
         NextButton.onClick.AddListener(Close);
         RerollButton.onClick.AddListener(HandleRerollClicked);
         GameManager.Instance.OnCoinShopChanged.AddListener(HandleCoinShopChanged);
+
+        // Live subscriptions (not just refreshed on Open) since buying/selling any of these three
+        // can happen WHILE the Shop is already open -- a card purchase, a Sell click on the owned
+        // PowerUp list itself, or picking from an opened Ball Enhance pack.
+        PowerUpManager.Instance.OnPowerUpsChanged.AddListener(RefreshOwnedPowerUps);
+        ConsumableManager.Instance.OnConsumablesChanged.AddListener(RefreshOwnedConsumables);
+        RevealPopup.OnClosed += RefreshOwnedBallEnhances;
 
         PopupRoot.SetActive(false);
     }
@@ -74,7 +99,62 @@ public class ShopHUD : BaseHUD
         GenerateBallEnhancePackOffers();
         HandleCoinShopChanged(GameManager.Instance.GetCoinShop());
 
+        RefreshOwnedPowerUps();
+        RefreshOwnedConsumables();
+        RefreshOwnedBallEnhances();
+
         OnShopOpenChanged?.Invoke(true);
+    }
+
+    private void RefreshOwnedPowerUps()
+    {
+        foreach (PowerUpPanel panel in _ownedPowerUpPanels)
+        {
+            Destroy(panel.gameObject);
+        }
+        _ownedPowerUpPanels.Clear();
+
+        foreach (BasePowerUp powerUp in PowerUpManager.Instance.GetEquipped())
+        {
+            PowerUpPanel panel = Instantiate(OwnedPowerUpPanelPrefab, OwnedPowerUpPanelContainer);
+            panel.SetInfo(powerUp);
+            panel.SetSellButtonVisible(true);
+            _ownedPowerUpPanels.Add(panel);
+        }
+    }
+
+    private void RefreshOwnedConsumables()
+    {
+        foreach (ConsumablePanel panel in _ownedConsumablePanels)
+        {
+            Destroy(panel.gameObject);
+        }
+        _ownedConsumablePanels.Clear();
+
+        GameState currentState = GameManager.Instance.StateMachine.CurrentState;
+        foreach (BaseConsumable consumable in ConsumableManager.Instance.GetHeld())
+        {
+            ConsumablePanel panel = Instantiate(OwnedConsumablePanelPrefab, OwnedConsumablePanelContainer);
+            panel.SetInfo(consumable);
+            panel.RefreshUsability(currentState);
+            _ownedConsumablePanels.Add(panel);
+        }
+    }
+
+    private void RefreshOwnedBallEnhances()
+    {
+        foreach (BallEnhanceInfoPanel panel in _ownedBallEnhancePanels)
+        {
+            Destroy(panel.gameObject);
+        }
+        _ownedBallEnhancePanels.Clear();
+
+        foreach ((BallEnhanceType type, BallEnhanceAxis axis) in BallEnhanceManager.Instance.GetOwned())
+        {
+            BallEnhanceInfoPanel panel = Instantiate(OwnedBallEnhancePanelPrefab, OwnedBallEnhancePanelContainer);
+            panel.SetInfo(type, axis);
+            _ownedBallEnhancePanels.Add(panel);
+        }
     }
 
     // Not rerollable -- generated once per Open(), unlike GenerateCardOffers which also runs on
