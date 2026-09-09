@@ -40,10 +40,12 @@ public class BrickController : MonoBehaviour
     private Coroutine _moveRoutine;
     private Coroutine _spawnScaleRoutine;
     private Vector3 _baseScale;
+    private BoxCollider2D _baseCollider;
 
     private void Awake()
     {
         _baseScale = transform.localScale;
+        _baseCollider = GetComponent<BoxCollider2D>();
     }
 
     // Animator bool parameter driven by SetDanger -- true while this brick will breach the bottom
@@ -211,10 +213,14 @@ public class BrickController : MonoBehaviour
 
         if (_hitPoint <= 0 )
         {
+            _baseCollider.enabled = false;
             OnDestroyed?.Invoke(this);
             GameManager.Instance.AddDestroyScore(damage);
             GameManager.Instance.SoundManager.Play(SoundType.Destroyed);
-            Destroy(gameObject);
+            Animator.SetTrigger("Destroyed");
+            HitPointText.text = "";
+            Destroy(gameObject,0.5f);
+            return;
         }
 
         Animator.SetTrigger("Hit");
