@@ -68,7 +68,7 @@ public class BrickController : MonoBehaviour
 
     public UnityEvent<BrickController> OnDestroyed = new UnityEvent<BrickController>();
 
-    private int _hitPoint;
+    protected int _hitPoint;
     private bool _isSpawned;
 
     // Scene-placed bricks that BrickManager doesn't own (e.g. hand-placed test bricks) still get
@@ -80,7 +80,7 @@ public class BrickController : MonoBehaviour
             Spawn(5, GridPosition);
     }
 
-    public void Spawn(int hitPoint, Vector2Int gridPosition)
+    public virtual void Spawn(int hitPoint, Vector2Int gridPosition)
     {
         _hitPoint = hitPoint;
         GridPosition = gridPosition;
@@ -200,7 +200,7 @@ public class BrickController : MonoBehaviour
         HitsThisShot = 0;
     }
 
-    public void DamageBrick(int damage)
+    public virtual void DamageBrick(int damage)
     {
         HitsThisShot++;
 

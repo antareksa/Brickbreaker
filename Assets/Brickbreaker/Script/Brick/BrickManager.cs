@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class BrickManager : MonoBehaviour
 {
     public BrickController BrickPrefab;
-    public BrickController BigBrickPrefab;
+    public BigBrickController BigBrickPrefab;
     public LauncherControllerV2 Launcher;
     public ShopHUD ShopHUD;
 
@@ -157,11 +157,13 @@ public class BrickManager : MonoBehaviour
             (SpawnColumnRange.x + SpawnColumnRange.y) / 2,
             SpawnRow);
 
-        BrickController bigBrick = Instantiate(BigBrickPrefab, BigBrickSpawnPosition);
+        BigBrickController bigBrick = Instantiate(BigBrickPrefab, BigBrickSpawnPosition);
         bigBrick.transform.localPosition = Vector3.zero; //GridToWorld(centerPosition);
         // CurrentPhaseHP is already the formula-computed HP for this (final) phase --
         // AdvancePhaseIfComplete sets it right before calling this.
-        bigBrick.Spawn(Mathf.RoundToInt(bossManager.CurrentPhaseHP * FinalPhaseBrickHpMultiplier), centerPosition);
+        //bigBrick.Spawn(Mathf.RoundToInt(bossManager.CurrentPhaseHP * FinalPhaseBrickHpMultiplier), centerPosition);
+
+        bigBrick.Spawn(10, centerPosition);
         bigBrick.OnDestroyed.AddListener(brick => HandleFinalPhaseBrickDestroyed(brick, bossManager));
 
         _bricks[centerPosition] = bigBrick;

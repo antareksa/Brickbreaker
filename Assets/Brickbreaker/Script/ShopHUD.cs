@@ -52,9 +52,9 @@ public class ShopHUD : BaseHUD
     public ConsumablePanel OwnedConsumablePanelPrefab;
     public Transform OwnedConsumablePanelContainer;
 
-    [Header("Owned Ball Enhances")]
-    public BallEnhanceInfoPanel OwnedBallEnhancePanelPrefab;
-    public Transform OwnedBallEnhancePanelContainer;
+    //[Header("Owned Ball Enhances")]
+    //public BallEnhanceInfoPanel OwnedBallEnhancePanelPrefab;
+    //public Transform OwnedBallEnhancePanelContainer;
 
     public bool IsOpen { get; private set; }
 
@@ -143,18 +143,18 @@ public class ShopHUD : BaseHUD
 
     private void RefreshOwnedBallEnhances()
     {
-        foreach (BallEnhanceInfoPanel panel in _ownedBallEnhancePanels)
-        {
-            Destroy(panel.gameObject);
-        }
-        _ownedBallEnhancePanels.Clear();
+        //foreach (BallEnhanceInfoPanel panel in _ownedBallEnhancePanels)
+        //{
+        //    Destroy(panel.gameObject);
+        //}
+        //_ownedBallEnhancePanels.Clear();
 
-        foreach ((BallEnhanceType type, BallEnhanceAxis axis) in BallEnhanceManager.Instance.GetOwned())
-        {
-            BallEnhanceInfoPanel panel = Instantiate(OwnedBallEnhancePanelPrefab, OwnedBallEnhancePanelContainer);
-            panel.SetInfo(type, axis);
-            _ownedBallEnhancePanels.Add(panel);
-        }
+        //foreach ((BallEnhanceType type, BallEnhanceAxis axis) in BallEnhanceManager.Instance.GetOwned())
+        //{
+        //    BallEnhanceInfoPanel panel = Instantiate(OwnedBallEnhancePanelPrefab, OwnedBallEnhancePanelContainer);
+        //    panel.SetInfo(type, axis);
+        //    _ownedBallEnhancePanels.Add(panel);
+        //}
     }
 
     // Not rerollable -- generated once per Open(), unlike GenerateCardOffers which also runs on
